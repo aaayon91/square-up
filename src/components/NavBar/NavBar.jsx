@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import * as userService from '../../utilities/users-service'
 
-export default function NavBar({user, setUser}) {
+export default function NavBar({user, setUser, form, formDisplayed}) {
 
     function handleLogOut() {
         // Delegate to the users-service
@@ -11,14 +11,29 @@ export default function NavBar({user, setUser}) {
     }
 
     return (
-        <nav>
-            <Link to="/orders">Order History</Link>
-            &nbsp; | &nbsp;
-            <Link to="/orders/new">New Order</Link>
-            &nbsp; | &nbsp;
-            <span>Welcome, {user.name}</span>
-            &nbsp;&nbsp;
-            <Link to="" onClick={handleLogOut} >Log Out</Link>
+        <nav className="navbar">
+            {
+            user ?
+            <>
+                <button className="nav-btn-2"><Link className="nav-link" to="/orders">JOIN A SQ</Link></button>
+                <button className="nav-btn-2"><Link className="nav-link" to="/orders/new">START A SQ</Link></button>
+                <span>Welcome, {user.name}</span>
+                <button className="nav-btn-2"><Link className="nav-link" to="" onClick={handleLogOut} >LOG OUT</Link></button>
+            </>
+            : 
+            <>
+                <div>
+                <h1 className="centered">SquareUp</h1>
+                </div>
+                {
+                    form ?
+                        <button className="nav-btn" onClick={formDisplayed}>SIGN UP</button>
+
+                    :
+                        <button className="nav-btn" onClick={formDisplayed}>LOG IN</button>
+                }
+            </>
+            }
         </nav>
     )
 }

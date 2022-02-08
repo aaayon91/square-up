@@ -80,7 +80,15 @@ code {
   font-size: 2vmin;
 }
 
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-container {
+  width: 450px;
+  height:max-content;
   padding: 3vmin;
   background-color: var(--tan-1);
   border: .1vmin solid var(--tan-3);
@@ -119,6 +127,12 @@ input:focus {
   border-color: var(--orange);
 }
 
+.btn-div {
+  grid-column: span 2;
+  /* width: 100%; */
+  /* background-color: blue; */
+}
+
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
@@ -152,4 +166,8 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
+  height: 40px;
+  width: 100px;
+  border-radius: 40px;
+  font-size: 100%;
 }

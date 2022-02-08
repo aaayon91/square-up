@@ -1,12 +1,32 @@
+import { useState } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 
-export default function AuthPage({setUser}) {
+let f = 0;
+export default function AuthPage({setUser, formDisplayed, form}) {
+    // const [form, setForm] = useState(1);
+
+    // function formDisplayed(evt) {
+    //     f = f + 1;
+    //     if (f % 2 === 0) {
+    //         setForm(1);
+    //     } else {
+    //         setForm(null);
+    //     }
+    // }
+    // console.log(f)
+    // console.log(form)
     return(
-        <main>
+        <main className="auth-page">
             <h1>AuthPage</h1>
-            <SignUpForm setUser={setUser}/>
-            <LoginForm setUser={setUser}/>
+            {
+                form ?
+                    <LoginForm setUser={setUser}/>
+                :
+                    <SignUpForm setUser={setUser}/>
+            }
         </main>
     );
 }
+
+// formDisplayed={formDisplayed}
