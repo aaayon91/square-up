@@ -15,7 +15,7 @@ export default function NavBar({user, setUser, form, formDisplayed}) {
             {
             user ?
             <>
-                <button className="nav-btn-2"><Link className="nav-link" to="/orders">JOIN A SQ</Link></button>
+                <button className="nav-btn-2"><Link className="nav-link" to="/boards">JOIN A SQ</Link></button>
                 <button className="nav-btn-2"><Link className="nav-link" to="/orders/new">START A SQ</Link></button>
                 <span>Welcome, {user.name}</span>
                 <button className="nav-btn-2"><Link className="nav-link" to="" onClick={handleLogOut} >LOG OUT</Link></button>

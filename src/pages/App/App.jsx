@@ -9,7 +9,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 
 let f=0;
-export default function App() {
+export default function App({handleAddBoard}) {
   const [user, setUser] = useState(getUser());
   const [form, setForm] = useState(1);
 
@@ -31,8 +31,8 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser}/>
           <Routes>
-            <Route path="/orders/new" element={ <NewOrderPage /> } />
-            <Route path="/orders" element={ <OrderHistoryPage /> } />
+            <Route path="/orders/new" element={ <NewOrderPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
+            <Route path="/boards" element={ <OrderHistoryPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
           </Routes>
         </>
         :
