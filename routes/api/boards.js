@@ -5,5 +5,7 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // GET /api/boards
 router.get('/', boardsCtrl.getAll);
+// POST /api/boards
+router.post('/', boardsCtrl.create);
 
 module.exports = router;
