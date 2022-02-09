@@ -2,7 +2,8 @@ const Board = require('../../models/board');
 
 module.exports = {
     getAll,
-    create
+    create,
+    deleteBoard
 };
 
 async function getAll(req, res) {
@@ -17,3 +18,15 @@ async function create(req, res) {
     console.log(board)
     res.json(board)
 }
+
+function deleteBoard(req, res) {
+    console.log('Delete Board!!!!!')
+    console.log(board._id)
+}
+
+// function deleteTicker(req, res, next) {
+//     Ticker.findById(req.params.id).then(function (ticker) {
+//         ticker.remove();
+//         res.redirect('/tickers');
+//     })
+// }

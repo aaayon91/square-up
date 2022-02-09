@@ -32,9 +32,9 @@ export default function BoardListPage({ boards, setBoards, user, setUser, handle
     return (
         <>
             <h1>AVAILABLE SQUARES</h1>
-            <div class="board-container">
+            <div className="board-container">
                 {boards.map((board, idx) => (
-                <BoardCard board={board} key={board._id} index={idx} />
+                <BoardCard board={board} key={board._id} index={idx} user={user}/>
                 ))}
             </div>
         </>

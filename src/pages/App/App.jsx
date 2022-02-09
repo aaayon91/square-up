@@ -1,10 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
 import NewBoardPage from '../NewBoardPage/NewBoardPage';
 import BoardListPage from '../BoardListPage/BoardListPage';
+import BoardShowPage from '../BoardShowPage/BoardShowPage';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
@@ -33,6 +34,7 @@ export default function App() {
 
   return (
     <main className="App">
+
       {
         user ? 
         <>
@@ -40,7 +42,10 @@ export default function App() {
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
             <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard}/> } />
+            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} />} />
+            <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
+
         </>
         :
         <>

@@ -18,7 +18,7 @@
 
 .title {
     color: black;
-    height: 20%;
+    height: 30%;
     font-size: 100%;
     /* background-color: red; */
     /* opacity: 65%; */
@@ -37,7 +37,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80%;
+    height: 70%;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
