@@ -4,7 +4,7 @@ import * as usersService from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
 import BoardCard from '../../components/BoardCard/BoardCard';
 
-export default function BoardListPage({ boards, setBoards, user, setUser, handleAddBoard }) {
+export default function BoardListPage({ boards, setBoards, user, board, setUser, handleDeleteBoard }) {
     // const [boards, setBoards] = useState([]);
 
     useEffect(function () {
@@ -34,7 +34,7 @@ export default function BoardListPage({ boards, setBoards, user, setUser, handle
             <h1>AVAILABLE SQUARES</h1>
             <div className="board-container">
                 {boards.map((board, idx) => (
-                <BoardCard board={board} key={board._id} index={idx} user={user}/>
+                <BoardCard board={board} key={board._id} index={idx} user={user} handleDeleteBoard={handleDeleteBoard}/>
                 ))}
             </div>
         </>

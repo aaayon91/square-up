@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
-export default function BoardCard({board, user}) {
-    async function handleDeleteBoard() {
-        console.log(board)
-    }
+export default function BoardCard({board, user, handleDeleteBoard}) {
+    // async function handleDeleteBoard() {
+    //     // console.log(board)
+        
+    // }
 
     return (
         <>
@@ -24,7 +25,7 @@ export default function BoardCard({board, user}) {
                     <h2>ENTRY: ${board.entry}</h2>
                     {
                          (board.user === user._id) ?
-                         <button className="nav-btn-2" ><Link className="nav-link" to="" onClick={handleDeleteBoard} >DELETE</Link></button>
+                         <button className="nav-btn-2" ><Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button>
                          :
                          <></>
                      }
@@ -35,4 +36,5 @@ export default function BoardCard({board, user}) {
       );
 }
 
-{/* <button className="nav-btn-2"><Link className="nav-link" to="" onClick={handleDelete} >DELETE</Link></button> */}
+{/* <button className="nav-btn-2" onClick={() => handleDeleteBoard(board._id)} >DELETE</button> */}
+{/* <button className="nav-btn-2" ><Link className="nav-link" to="" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button> */}

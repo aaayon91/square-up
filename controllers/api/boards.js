@@ -19,9 +19,13 @@ async function create(req, res) {
     res.json(board)
 }
 
-function deleteBoard(req, res) {
+async function deleteBoard(req, res) {
     console.log('Delete Board!!!!!')
-    console.log(board._id)
+    // console.log(req.body.board_id)
+    await Board.remove({_id: req.body.board_id});
+    console.log("board deleted!!!")
+    const boards = await Board.find({})
+    res.json(boards)
 }
 
 // function deleteTicker(req, res, next) {

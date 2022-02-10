@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import {handleAddBoard} from '../BoardListPage/BoardListPage'
+import { Link } from "react-router-dom";
+// import {handleAddBoard} from '../BoardListPage/BoardListPage'
 
 export default function NewBoardPage({user, setUser, handleAddBoard}) {
     const [content, setContent] = useState({
@@ -35,7 +36,7 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
 
     return(
         <div className="form-container">
-          <form  onSubmit={handleSubmit}>
+          <form>
             <label>HOME TEAM:</label>
             <input type="text" name="homeTeam" value={content.homeTeam} onChange={handleChange} />
             <label>VISITING TEAM:</label>
@@ -49,9 +50,33 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
             <label>ENTRY AMOUNT:</label>
             <input type="number" name="entry" value={content.entry} onChange={handleChange} />
             <div className="btn-div">
-              <button type="submit">CREATE</button>
+              <button type="submit"><Link className="nav-link" to="/boards" onClick={handleSubmit}>CREATE</Link></button>
             </div>
           </form>
         </div>
     );
 }
+
+
+{/* <div className="form-container">
+<form  onSubmit={handleSubmit}>
+  <label>HOME TEAM:</label>
+  <input type="text" name="homeTeam" value={content.homeTeam} onChange={handleChange} />
+  <label>VISITING TEAM:</label>
+  <input type="text" name="visitTeam" value={content.visitTeam} onChange={handleChange} />
+  <label>BOARD SIZE:</label>
+  <select name="size" style={{textAlign:"center"}} onChange={handleChange}>
+      <option disabled selected value> -- select an option -- </option>
+      <option value={25}>{25}</option>
+      <option value={100}>{100}</option>
+  </select>
+  <label>ENTRY AMOUNT:</label>
+  <input type="number" name="entry" value={content.entry} onChange={handleChange} />
+  <div className="btn-div">
+    <button type="submit">CREATE</button>
+  </div>
+</form>
+</div> */}
+
+{/* <button type="submit">CREATE</button> */}
+{/* <Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link> */}

@@ -9,18 +9,23 @@ export function add(boardData) {
     return sendRequest(BASE_URL, 'POST', boardData);
 }
 
+export function deleteBoard(board_id) {
+    console.log(board_id)
+    return sendRequest(BASE_URL, 'DELETE', board_id)
+}
+
 // Helper Function
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc.
     const options = { method }
-    console.log(options)
+    console.log('options', options)
     console.log(payload)
     if (payload) {
         options.headers = { 'Content-Type': 'application/json' };
         options.body = JSON.stringify(payload);
     }
-    console.log(options)
+    console.log('options', options)
     const token = getToken();
     if (token) {
         // Ensure the headers object exists
