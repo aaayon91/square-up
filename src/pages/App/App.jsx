@@ -9,6 +9,7 @@ import BoardShowPage from '../BoardShowPage/BoardShowPage';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
+import * as squaresAPI from '../../utilities/squares-api';
 
 let f=0;
 export default function App() {
@@ -24,12 +25,9 @@ export default function App() {
           setForm(null);
       }
   }
-  console.log(f)
-  console.log(form)
 
   async function handleAddBoard(boardData) {
     const board = await boardsAPI.add(boardData)
-    // history.push('/boards');
     setBoards([...boards, board])
   }
 
@@ -41,13 +39,13 @@ export default function App() {
     // setBoards(boards)
   } 
 
-  function handleAddSquare() {
-    // console.log(board)
+  async function handleAddSquare(board) {
+    await squaresAPI.addSquare(board)
+    console.log('Helloooo69')
+    console.log(board)
     console.log(user)
+    // setBoards([...boards, board])
     // console.log(board.squares.length)
-    // setSquareOwner(user.name)
-    // setDisablebtn(true);
-    // setTaken("red")
   }
 
   return (
@@ -59,8 +57,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
-            <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard} handleAddSquare={handleAddSquare}/> } />
-            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user}/>} />
+            <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } />
+            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} handleAddSquare={handleAddSquare}/>} />
             <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
 

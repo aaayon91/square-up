@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const squareSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    homeScore: {
-        type: Number
-    },
-    visitScore: {
-        type: Number
-    }
+    // homeScore: {
+    //     type: Number
+    // },
+    // visitScore: {
+    //     type: Number
+    // }
 }, {
     timestamps: true,
     toJSON: { virtuals: true }

@@ -1,22 +1,10 @@
 import { getToken } from './users-service';
-const BASE_URL = '/api/boards'
+const BASE_URL = '/api/squares'
 
-export function getAll() {
-    return sendRequest(BASE_URL);
+export function addSquare(board) {
+    console.log('YOOOOOOOOOO')
+    return sendRequest(BASE_URL, 'POST', board);
 }
-
-export function add(boardData) {
-    return sendRequest(BASE_URL, 'POST', boardData);
-}
-
-export function deleteBoard(board_id) {
-    console.log(board_id)
-    return sendRequest(BASE_URL, 'DELETE', board_id);
-}
-
-// export function addSquare(board) {
-//     return sendRequest(BASE_URL, 'POST', board);
-// }
 
 // Helper Function
 async function sendRequest(url, method = 'GET', payload = null) {
