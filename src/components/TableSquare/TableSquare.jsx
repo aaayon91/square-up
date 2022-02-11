@@ -6,11 +6,11 @@ export default function TableSquare({board, user, handleAddSquare}) {
     const [squareOwner, setSquareOwner] = useState('')
     const [taken, setTaken] = useState("yellow")
 
-    function handleClick() {
+    async function handleClick() {
         // console.log(board)
         // console.log(user)
         // console.log(board.squares.length)
-        handleAddSquare(board, user);
+        await handleAddSquare(board, user);
         setSquareOwner(user.name)
         setDisablebtn(true);
         setTaken("red")

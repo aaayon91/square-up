@@ -41,9 +41,9 @@ export default function App() {
 
   async function handleAddSquare(board) {
     await squaresAPI.addSquare(board)
-    console.log('Helloooo69')
-    console.log(board)
-    console.log(user)
+    // const boards = await boardsAPI.getAll();
+    const boards = await boardsAPI.getAll();
+    setBoards(boards);
     // setBoards([...boards, board])
     // console.log(board.squares.length)
   }
