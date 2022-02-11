@@ -41,6 +41,15 @@ export default function App() {
     // setBoards(boards)
   } 
 
+  function handleAddSquare() {
+    // console.log(board)
+    console.log(user)
+    // console.log(board.squares.length)
+    // setSquareOwner(user.name)
+    // setDisablebtn(true);
+    // setTaken("red")
+  }
+
   return (
     <main className="App">
 
@@ -50,8 +59,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
-            <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } />
-            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} />} />
+            <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard} handleAddSquare={handleAddSquare}/> } />
+            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user}/>} />
             <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
 

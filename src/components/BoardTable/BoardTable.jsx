@@ -1,6 +1,8 @@
 import TableSquare from "../TableSquare/TableSquare"
 
-export default function BoardTable({board}) {
+export default function BoardTable({board, user}) {
+    // let props ={ board={board}, user={user}}
+
     return (
     <table>
         <tr>
@@ -18,133 +20,133 @@ export default function BoardTable({board}) {
         </tr>
         <tr>
             <th scope="row" className="table-num-col">{0}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{1}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{2}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{3}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{4}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{5}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{6}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{7}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{8}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
         <tr>
             <th scope="row">{9}</th>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
-            <td><TableSquare /></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
+            <td><TableSquare board={board} user={user}/></td>
         </tr>
     </table>
     )

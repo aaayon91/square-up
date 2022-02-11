@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import {handleAddBoard} from '../BoardListPage/BoardListPage'
 
 export default function NewBoardPage({user, setUser, handleAddBoard}) {
+  const navigate = useNavigate();
     const [content, setContent] = useState({
       homeTeam: '',
       visitTeam: '',
@@ -20,6 +21,7 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
         evt.preventDefault();
         console.log(content)
         handleAddBoard(content)
+        navigate('/boards')
         // // Prevent form from being submitted to the server
         // evt.preventDefault();
         // try {
@@ -50,7 +52,7 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
             <label>ENTRY AMOUNT:</label>
             <input type="number" name="entry" value={content.entry} onChange={handleChange} />
             <div className="btn-div">
-              <button type="submit"><Link className="nav-link" to="/boards" onClick={handleSubmit}>CREATE</Link></button>
+              <button type="submit" onClick={handleSubmit}>CREATE</button>
             </div>
           </form>
         </div>
