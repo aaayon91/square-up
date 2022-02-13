@@ -10,26 +10,18 @@ export function add(boardData) {
 }
 
 export function deleteBoard(board_id) {
-    console.log(board_id)
     return sendRequest(BASE_URL, 'DELETE', board_id);
 }
-
-// export function addSquare(board) {
-//     return sendRequest(BASE_URL, 'POST', board);
-// }
 
 // Helper Function
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument
     // used to include a data payload, set headers, etc.
     const options = { method }
-    console.log('options', options)
-    console.log(payload)
     if (payload) {
         options.headers = { 'Content-Type': 'application/json' };
         options.body = JSON.stringify(payload);
     }
-    console.log('options', options)
     const token = getToken();
     if (token) {
         // Ensure the headers object exists
@@ -39,8 +31,6 @@ async function sendRequest(url, method = 'GET', payload = null) {
         options.headers.Authorization = `Bearer ${token}`;
     }
     const res = await fetch(url, options);
-    console.log(url, options)
-    console.log(res)
     // res.ok will be false if the status code set to 4xx in the controller action
     if (res.ok) return res.json();
     throw new Error('Bad Request');

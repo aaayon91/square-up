@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function BoardCard({board, user, handleDeleteBoard}) {
-    // async function handleDeleteBoard() {
-    //     // console.log(board)
-        
-    // }
 
     return (
         <>
@@ -31,6 +27,3 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
         </>
       );
 }
-
-{/* <button className="nav-btn-2" onClick={() => handleDeleteBoard(board._id)} >DELETE</button> */}
-{/* <button className="nav-btn-2" ><Link className="nav-link" to="" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button> */}

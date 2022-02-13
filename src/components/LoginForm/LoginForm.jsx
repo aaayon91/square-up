@@ -45,5 +45,3 @@ export default function LoginForm({ setUser, formDisplayed }) {
     </div>
   );
 }
-
-{/* <button onClick={formDisplayed}>SIGN UP</button> */}

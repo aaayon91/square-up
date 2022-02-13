@@ -21,34 +21,14 @@ export default class SignUpForm extends Component {
     handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
-          // We don't want to send the 'error' or 'confirm' property,
-          //  so let's make a copy of the state object, then delete them
-          // Using spread operator and delete keyword
-          // const formData = {...this.state};
-          // delete formData.error;
-          // delete formData.confirm;
-
-          // Object literal
-          // const formData = {
-          //   name: this.state.name,
-          //   emai: this.state.email,
-          //   password: this.state.password
-          // };
-
-          // Deconstructing state
           const {name, email, password} = this.state;
           const formData = {name, email, password};
-          // console.log(formData)
           // The promise returned by the signUp service method 
           // will resolve to the user object included in the
           // payload of the JSON Web Token (JWT)
           const user = await signUp(formData);
-          // Baby step!
-          // console.log(user)
           this.props.setUser(user)
-
         } catch(err) {
-            // An error occurred 
             console.log(err)
             this.setState({ error: 'Sign Up Failed - Try Again' });
         }
@@ -79,5 +59,3 @@ export default class SignUpForm extends Component {
         );
       }
 }
-
-{/* <button onClick={this.props.formDisplayed}>LOGIN</button> */}

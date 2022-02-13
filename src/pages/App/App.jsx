@@ -32,21 +32,15 @@ export default function App() {
   }
 
   async function handleDeleteBoard(board_id) {
-    // console.log(board_id)
     await boardsAPI.deleteBoard({board_id})
     const boards = await boardsAPI.getAll();
     setBoards(boards);
-    // setBoards(boards)
   } 
 
   async function handleAddSquare(board, pos) {
     await squaresAPI.addSquare(board, pos)
-    console.log(board.squares[board.squares.length-1])
-    // const boards = await boardsAPI.getAll();
     const boards = await boardsAPI.getAll();
     setBoards(boards);
-    // setBoards([...boards, board])
-    // console.log(board.squares.length)
   }
 
   return (
