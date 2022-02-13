@@ -7,7 +7,7 @@ module.exports = {
 };
 
 async function getAll(req, res) {
-    const boards = await Board.find({})
+    const boards = await Board.find({}).populate({path: 'squares', populate: {path: 'user'}})
     res.json(boards)
 }
 
@@ -24,7 +24,7 @@ async function deleteBoard(req, res) {
     // console.log(req.body.board_id)
     await Board.remove({_id: req.body.board_id});
     console.log("board deleted!!!")
-    const boards = await Board.find({})
+    const boards = await Board.find({}).populate({path: 'squares', populate: {path: 'user'}})
     res.json(boards)
 }
 

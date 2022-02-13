@@ -39,8 +39,9 @@ export default function App() {
     // setBoards(boards)
   } 
 
-  async function handleAddSquare(board) {
-    await squaresAPI.addSquare(board)
+  async function handleAddSquare(board, pos) {
+    await squaresAPI.addSquare(board, pos)
+    console.log(board.squares[board.squares.length-1])
     // const boards = await boardsAPI.getAll();
     const boards = await boardsAPI.getAll();
     setBoards(boards);

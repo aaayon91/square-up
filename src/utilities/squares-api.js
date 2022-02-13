@@ -1,9 +1,9 @@
 import { getToken } from './users-service';
 const BASE_URL = '/api/squares'
 
-export function addSquare(board) {
+export function addSquare(board, pos) {
     console.log('YOOOOOOOOOO')
-    return sendRequest(BASE_URL, 'POST', board);
+    return sendRequest(BASE_URL, 'POST', {board, pos});
 }
 
 // Helper Function

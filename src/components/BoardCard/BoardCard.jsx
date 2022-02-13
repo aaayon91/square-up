@@ -11,10 +11,6 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
           <Link to={`/boards/${board._id}`} className="board-link">
             <div
               className="card"
-            //   style={{
-            //     background: `url(${movie.poster_path}) no-repeat center center`,
-            //     WebkitBackgroundSize: "cover"
-            //   }}
             >
                 <div className="board-picture">
                     <h1>{board.homeTeam}</h1>

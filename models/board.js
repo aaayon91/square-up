@@ -9,6 +9,7 @@ const squareSchema = new Schema({
     // visitScore: {
     //     type: Number
     // }
+    pos: {type: Number}
 }, {
     timestamps: true,
     toJSON: { virtuals: true }
