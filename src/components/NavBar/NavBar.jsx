@@ -22,9 +22,9 @@ export default function NavBar({user, setUser, form, formDisplayed}) {
             </>
             : 
             <>
-                <div>
+                {/* <div>
                 <h1 className="centered">SquareUp</h1>
-                </div>
+                </div> */}
                 {
                     form ?
                         <button className="nav-btn" onClick={formDisplayed}>SIGN UP</button>

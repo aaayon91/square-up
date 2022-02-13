@@ -8,7 +8,7 @@ export default function BoardTable({board, user, handleAddSquare}) {
             <table>
                 <tbody>
                     <tr>
-                        <td style={{backgroundColor: 'black'}}></td>
+                        <td style={{backgroundColor: 'black', borderRadius: '15px'}}></td>
                         <th scope="col">{0}</th>
                         <th scope="col">{1}</th>
                         <th scope="col">{2}</th>

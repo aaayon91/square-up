@@ -11,4 +11,3 @@ async function create(req, res) {
     const square = board.squares[board.squares.length-1]
     res.json({board, square})
 }
-

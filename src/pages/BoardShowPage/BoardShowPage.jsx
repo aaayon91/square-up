@@ -7,9 +7,14 @@ export default function BoardShowPage({boards, user, handleAddSquare}) {
     let board = boards.find((bor) => bor._id === boardId);
 
     return (
-        <div className="show-page-div">
-            <h1>{board.homeTeam} V {board.visitTeam}</h1>
-            <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
+        <div className='show-page'>
+            <aside>
+                <h1>{board.visitTeam}</h1>
+            </aside>
+            <div className="show-page-div">
+                <h1>{board.homeTeam}</h1>
+                <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
+            </div>
         </div>
       );
 }

@@ -1,5 +1,10 @@
+/* #root {
+  background-color: #0A3A60;
+} */
+
 .App {
   text-align: center;
+  /* background-color: #0A3A60; */
 }
 
 .App-logo {
@@ -18,8 +23,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -39,14 +44,16 @@
 
 /* navbar styling */
 .navbar {
-  /* width: 100vw; */
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
   height: 60px;
   /* display: block; */
   display: flex;
   align-items: center;
   /* text-align: center; */
   justify-content: flex-end;
-  /* background-color: blue; */
+  background-color: white;
 }
 
 .nav-btn {
@@ -63,13 +70,13 @@
   font-size: 100%;
 } */
 
-.centered {
-  position: fixed;
+.squareup {
+  /* position: fixed; */
   font-size: 55px;
-  top: 0%;
-  left: 50%;
+  /* top: 0%;
+  left: 50%; */
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 
 .nav-btn-2 {

@@ -7,7 +7,7 @@ export default function AuthPage({setUser, form}) {
 
     return(
         <main className="auth-page">
-            <h1>AuthPage</h1>
+            <h1 className="squareup">SquareUp</h1>
             {
                 form ?
                     <LoginForm setUser={setUser}/>
