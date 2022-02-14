@@ -9,9 +9,9 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
               className="card"
             >
                 <div className="board-picture">
-                    <h1>{board.homeTeam}</h1>
-                    <h1>V</h1>
-                    <h1>{board.visitTeam}</h1>
+                    <h1 className="board-card-text">{board.homeTeam}</h1>
+                    <h1 className="board-card-text">V</h1>
+                    <h1 className="board-card-text">{board.visitTeam}</h1>
                 </div>
                 <div className="title">
                     <h2>ENTRY: ${board.entry}</h2>

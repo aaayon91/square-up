@@ -90,7 +90,7 @@ code {
   width: 450px;
   height:max-content;
   padding: 3vmin;
-  background-color: white;
+  background-color: #F9F3E6;
   opacity: 80%;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
@@ -138,7 +138,7 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: orange;
+  background-color: #FA532E;
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;

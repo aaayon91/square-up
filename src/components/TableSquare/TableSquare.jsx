@@ -15,7 +15,7 @@ export default function TableSquare({board, user, handleAddSquare, pos, winner})
         return board.squares.find(square => square.pos === pos) || null
     }
 
-    return <button type="submit" style={{backgroundColor: square ? 'red' : 'yellow', border: (winner === pos) ? "5px solid black" : null}} onClick={handleClick} id={pos} className="table-square-btn" disabled={square}>
+    return <button type="submit" style={{backgroundColor: square ? 'grey' : '#FA532E', border: (winner === pos) ? "5px solid #FA532E" : null}} onClick={handleClick} id={pos} className="table-square-btn" disabled={square}>
             { square ? square.user.name : null }
         </button>
 }

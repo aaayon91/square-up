@@ -21,7 +21,7 @@ export default function BoardListPage({ boards, setBoards, user, board, setUser,
 
     return (
         <>
-            <h1>AVAILABLE SQUARES</h1>
+            <h1 className="squareup-2">SquareUp</h1>
             <div className="board-container">
                 {boards.map((board, idx) => (
                 <BoardCard board={board} key={board._id} index={idx} user={user} handleDeleteBoard={handleDeleteBoard}/>

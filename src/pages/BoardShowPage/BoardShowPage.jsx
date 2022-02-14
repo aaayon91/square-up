@@ -21,17 +21,17 @@ export default function BoardShowPage({boards, user, handleAddSquare, handleAddS
     // function getWinner() {
     //     return console.log(board.visitScore + board.homeScore, 'FINAl SCORE!!!')
     // }
-    
+
 
     return (
         <>
         <div className='show-page'>
             <aside>
-                <h1>{board.visitTeam} {board.visitScore ? `: ${board.visitScore}` : null}</h1>
+                <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{board.visitScore ? `${board.visitScore}` : null}</span></h1>
             </aside>
             <div className="show-page-div">
-                <h1>
-                    {board.homeTeam} {board.homeScore ? `: ${board.homeScore}` : null}
+                <h1 className='outline-text'>
+                    {board.homeTeam}: <span className="span-outline" >{board.homeScore ? `${board.homeScore}` : null}</span>
                 </h1>
                 <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
             </div>

@@ -71,13 +71,14 @@
 } */
 
 .squareup {
-  /* position: fixed; */
   font-size: 95px;
   font-family: 'Monoton', cursive;
-  /* top: 0%;
-  left: 50%; */
-  /* bring your own prefixes */
-  /* transform: translate(-50%, -50%); */
+}
+
+.squareup-2 {
+  font-size: 75px;
+  font-family: 'Monoton', cursive;
+  height: 70px;;
 }
 
 .nav-btn-2 {
