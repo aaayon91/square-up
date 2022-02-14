@@ -72,7 +72,8 @@
 
 .squareup {
   /* position: fixed; */
-  font-size: 55px;
+  font-size: 95px;
+  font-family: 'Monoton', cursive;
   /* top: 0%;
   left: 50%; */
   /* bring your own prefixes */

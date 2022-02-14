@@ -9,5 +9,7 @@ router.get('/', boardsCtrl.getAll);
 router.post('/', boardsCtrl.create);
 // Delete /api/boards
 router.delete('/', boardsCtrl.deleteBoard);
+//Update /api/boards
+router.put('/', boardsCtrl.updateBoard);
 
 module.exports = router;

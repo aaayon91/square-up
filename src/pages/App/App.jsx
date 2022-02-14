@@ -43,6 +43,13 @@ export default function App() {
     setBoards(boards);
   }
 
+  async function handleAddScores (board_id) {
+    await boardsAPI.addScores({board_id})
+    const boards = await boardsAPI.getAll();
+    setBoards(boards);
+    console.log('YOOOOOOOO!!!!!!')
+  }
+
   return (
     <main className="App">
 
@@ -53,7 +60,7 @@ export default function App() {
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
             <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } />
-            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} handleAddSquare={handleAddSquare}/>} />
+            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} handleAddSquare={handleAddSquare} handleAddScores={handleAddScores}/>} />
             <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
 

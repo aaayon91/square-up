@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './TableSquare.css'
 
-export default function TableSquare({board, user, handleAddSquare, pos}) {
+export default function TableSquare({board, user, handleAddSquare, pos, winner}) {
     const square = getSquare()
     // const [disableBtn, setDisablebtn] = useState(getSquare())
     // const [squareOwner, setSquareOwner] = useState()
@@ -15,7 +15,7 @@ export default function TableSquare({board, user, handleAddSquare, pos}) {
         return board.squares.find(square => square.pos === pos) || null
     }
 
-    return <button type="submit" style={{backgroundColor: square ? 'red' : 'yellow'}} onClick={handleClick} id={pos} className="table-square-btn" disabled={square}>
+    return <button type="submit" style={{backgroundColor: square ? 'red' : 'yellow', border: (winner === pos) ? "5px solid black" : null}} onClick={handleClick} id={pos} className="table-square-btn" disabled={square}>
             { square ? square.user.name : null }
         </button>
 }

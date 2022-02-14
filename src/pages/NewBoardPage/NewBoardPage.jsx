@@ -1,26 +1,28 @@
+import './NewBoardPage.css'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export default function NewBoardPage({user, setUser, handleAddBoard}) {
   const navigate = useNavigate();
-    const [content, setContent] = useState({
-      homeTeam: '',
-      visitTeam: '',
-      size: '',
-      entry: ''
-    })
+  const [content, setContent] = useState({
+    homeTeam: '',
+    visitTeam: '',
+    size: '',
+    entry: ''
+  })
 
   function handleChange(evt) {
-      setContent({...content, [evt.target.name]: evt.target.value });  
+    setContent({...content, [evt.target.name]: evt.target.value });  
   }
     
   function handleSubmit(evt) {
-      evt.preventDefault();
-      handleAddBoard(content)
-      navigate('/boards')
+    evt.preventDefault();
+    handleAddBoard(content)
+    navigate('/boards')
   }
 
   return(
+    <div className="new-board-div">
       <div className="form-container">
         <form>
           <label>HOME TEAM:</label>
@@ -40,5 +42,6 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
           </div>
         </form>
       </div>
+    </div>
   );
 }

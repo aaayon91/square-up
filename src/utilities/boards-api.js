@@ -13,6 +13,10 @@ export function deleteBoard(board_id) {
     return sendRequest(BASE_URL, 'DELETE', board_id);
 }
 
+export function addScores(board_id) {
+    return sendRequest(BASE_URL, 'PUT', board_id);
+}
+
 // Helper Function
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument

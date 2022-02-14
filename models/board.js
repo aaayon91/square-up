@@ -27,6 +27,12 @@ const boardSchema = new Schema({
         type: Number
     },
     squares: [squareSchema],
+    homeScore: {
+        type: Number
+    },
+    visitScore: {
+        type: Number
+    }
 }, {
     timestamps: true,
     toJSON: { virtuals: true }
