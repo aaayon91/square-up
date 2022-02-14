@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
@@ -47,7 +46,6 @@ export default function App() {
     await boardsAPI.addScores({board_id})
     const boards = await boardsAPI.getAll();
     setBoards(boards);
-    console.log('YOOOOOOOO!!!!!!')
   }
 
   return (

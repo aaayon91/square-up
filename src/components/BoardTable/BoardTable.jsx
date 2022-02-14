@@ -1,27 +1,13 @@
 import TableSquare from "../TableSquare/TableSquare"
 
 export default function BoardTable({board, user, handleAddSquare}) {
-    // let props ={ board={board}, user={user}}
     let winner;
 
     if (board.visitScore) {
         winner = parseInt(`${board.visitScore}${board.homeScore}`)
-        console.log(winner)
-        // console.log(typeof(parseInt(score)))
     }
 
-    // let winner = getWinner();
-
-    // function getWinner() {
-    //     if (board.visitScore) {
-
-    //     }
-    //     return console.log(board.visitScore + board.homeScore, 'WINNERRRRRRR!!!!')
-    //     // console.log(winner)
-    // }
-
     return (
-        <>
             <table>
                 <tbody>
                     <tr>
@@ -169,12 +155,5 @@ export default function BoardTable({board, user, handleAddSquare}) {
                     </tr>
                 </tbody>
             </table>
-        {/* {
-            board.squares.length === board.size ?
-                <button type="submit" onclick={onclick}>PLAY</button>
-            :
-                <h1>NO</h1>
-        } */}
-    </>
     )
 }

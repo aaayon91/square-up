@@ -1,8 +1,6 @@
-import { useState } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 
-let f = 0;
 export default function AuthPage({setUser, form}) {
 
     return(

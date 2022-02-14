@@ -10,26 +10,20 @@
     justify-content:flex-end;
     background-color: #F9F3E6;
     border-radius: 10px;
-    /* width: 200 px; */
     height: 400px;
     margin: 5%;
-    /* padding: 20%; */
 }
 
 .title {
     color: black;
     height: 30%;
     font-size: 100%;
-    /* background-color: red; */
-    /* opacity: 65%; */
     border-radius: 5px;
-    /* margin-bottom: 0; */
 }
 
 .board-link {
     text-decoration: none;
     width: 100%;
-    /* color: white; */
 }
 
 .board-picture {
@@ -49,7 +43,6 @@
     margin: 0px;
     font-family: 'Staatliches', cursive;
     font-size: 80px;
-    /* font-weight: 900; */
     color: #FA532E;
     -webkit-text-stroke: 1px black;
 }

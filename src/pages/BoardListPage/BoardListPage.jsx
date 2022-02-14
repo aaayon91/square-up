@@ -14,11 +14,6 @@ export default function BoardListPage({ boards, setBoards, user, board, setUser,
         fetchAllBoards();
     }, []);
 
-    // async function handleCheckToken() {
-    //     const expDate = await usersService.checkToken()
-    //     console.log(expDate)
-    // }
-
     return (
         <>
             <h1 className="squareup-2">SquareUp</h1>

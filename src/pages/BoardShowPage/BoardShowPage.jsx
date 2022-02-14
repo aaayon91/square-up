@@ -4,24 +4,13 @@ import { useState } from 'react';
 import BoardTable from "../../components/BoardTable/BoardTable";
 
 export default function BoardShowPage({boards, user, handleAddSquare, handleAddScores}) {
-    // const [homeTeamScore, setHomeTeamScore] = useState(null)
-    // const [visitTeamScore, setVisitTeamScore] = useState(null)
-    // const scores = getScores()
-    // const [winner, setWinner] = useState(null);
 
     let { boardId } = useParams();
     let board = boards.find((bor) => bor._id === boardId);
 
     async function handleClick() {
         await handleAddScores(board._id);
-        // setWinner(board.visitScore + board.homeScore)
-        // console.log(winner)
     }
-
-    // function getWinner() {
-    //     return console.log(board.visitScore + board.homeScore, 'FINAl SCORE!!!')
-    // }
-
 
     return (
         <>
@@ -44,7 +33,5 @@ export default function BoardShowPage({boards, user, handleAddSquare, handleAddS
                 null
         }
         </>
-      );
+    );
 }
-
-{/* <button type="submit" onClick={() => handleAddScores(board._id)} disabled={board.visitScore ? true : false}>PLAY</button> */}

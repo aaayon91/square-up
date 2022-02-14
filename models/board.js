@@ -3,12 +3,6 @@ const Schema = mongoose.Schema;
 
 const squareSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    // homeScore: {
-    //     type: Number
-    // },
-    // visitScore: {
-    //     type: Number
-    // }
     pos: {type: Number}
 }, {
     timestamps: true,

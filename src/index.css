@@ -1,13 +1,6 @@
 /* CSS Custom Properties */
 /* CSS variables */
 :root {
-  /* --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1; */
-  /* --orange: #F67F00; */
-  /* --text-light: #968c84;
-  --text-dark: #615954; */
   background-color: #0A3A60;
 }
 
@@ -130,8 +123,6 @@ input:focus {
 
 .btn-div {
   grid-column: span 2;
-  /* width: 100%; */
-  /* background-color: blue; */
 }
 
 button, a.button {
@@ -158,17 +149,3 @@ button.btn-xs {
   font-size: 1vmin;
   padding: .4vmin .5vmin;
 }
-
-/* button:disabled, form:invalid button[type="submit"] {
-  cursor: not-allowed;
-  background-color: var(--tan-4);
-} */
-/* 
-button[type="submit"] {
-  grid-column: span 2;
-  margin: 1vmin 0 0;
-  height: 40px;
-  width: 100px;
-  border-radius: 40px;
-  font-size: 100%;
-} */
