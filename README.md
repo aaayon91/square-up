@@ -1,5 +1,5 @@
 # SquareUp
-### SquareUp is an app where a user can take part in the gambling game of squares. In the game of squares a player selects a square from a board of 100 squares. Each square on the board has two numbers associated to it which represent the last digit of the final scores between two teams. The user wins the jackpot if his or her square has the correct digits based on a games result. In the SquareUp app, users can start their own game of squares or they can take part in another users game. 
+### SquareUp is an app where users can take part in the gambling game of squares. In the game of squares a player selects a square from a board of 100 squares. Each square on the board has two numbers associated to it which represent the last digit of the final scores between two teams. The user wins the jackpot if his/her square has the correct digits based on a games result. In the SquareUp app, users can start their own game of squares or they can take part in another users game. 
 <br>
 <br>
 
