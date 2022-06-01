@@ -14,6 +14,7 @@ async function getAll(req, res) {
 
 async function create(req, res) {
     req.body.user = req.user._id;
+    console.log(req.body)
     const board = await Board.create(req.body);
     res.json(board)
 }

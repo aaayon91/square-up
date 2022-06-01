@@ -26,9 +26,9 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
     setContent({...content, [evt.target.name]: evt.target.value });  
   }
     
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    handleAddBoard(content)
+    await handleAddBoard(content)
     navigate('/boards')
   }
 
