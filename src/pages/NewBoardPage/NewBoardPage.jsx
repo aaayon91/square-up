@@ -40,7 +40,7 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
           <select name="game" style={{textAlign:"center"}} onChange={handleChange}>
               <option disabled selected value> -- select an option -- </option>
               {games.map((game, idx) => (
-                <option ></option>
+                <option >{game.away_team} @ {game.home_team} {game.commence_time.split('T')[0]}</option>
                 ))}
           </select>
           <label>HOME TEAM:</label>

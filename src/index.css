@@ -80,12 +80,11 @@ code {
 }
 
 .form-container {
-  width: 450px;
+  /* width: 600px; */
   height:max-content;
   padding: 3vmin;
   background-color: #F9F3E6;
   opacity: 80%;
-  border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
 }
 
