@@ -1,8 +1,11 @@
 import './NewBoardPage.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import * as gamesAPI from "../../utilities/games-api"
+
 
 export default function NewBoardPage({user, setUser, handleAddBoard}) {
+  const [games, setGames] = useState([]);
   const navigate = useNavigate();
   const [content, setContent] = useState({
     homeTeam: '',
@@ -10,6 +13,14 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
     size: '',
     entry: ''
   })
+
+  useEffect(function () {
+    async function fetchAllGames() {
+      const games = await gamesAPI.getAll();
+      setGames(games);
+    }
+    fetchAllGames();
+}, []);
 
   function handleChange(evt) {
     setContent({...content, [evt.target.name]: evt.target.value });  
@@ -25,6 +36,13 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
     <div className="new-board-div">
       <div className="form-container">
         <form>
+        <label>GAME:</label>
+          <select name="game" style={{textAlign:"center"}} onChange={handleChange}>
+              <option disabled selected value> -- select an option -- </option>
+              {games.map((game, idx) => (
+                <option ></option>
+                ))}
+          </select>
           <label>HOME TEAM:</label>
           <input type="text" name="homeTeam" value={content.homeTeam} onChange={handleChange} />
           <label>VISITING TEAM:</label>
