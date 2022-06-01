@@ -14,12 +14,13 @@ async function getAll(req, res) {
 }
 
 async function create(req, res) {
-  // req.body.user = req.user._id;
-  // console.log(req.body)
-  console.log('req: ', req)
-  await Game.create(req);
-  // res.json(board)
-  console.log('DONE!!!')
+  // console.log('req: ', req)
+  if (await Game.findOne({id: req.id}).exec()) {
+    console.log(typeof(req.id))
+    // console.log('req: ', req)
+    // await Game.create(req);
+  } else await Game.create(req);
+  // console.log('DONE!!!')
 }
 
 const options = {
@@ -28,7 +29,7 @@ const options = {
   params: {all: 'true'},
   headers: {
     'X-RapidAPI-Host': 'odds.p.rapidapi.com',
-    'X-RapidAPI-Key': '9e061475ffmsh484b1a3632c49c8p1f54cdjsn6ea13474326a'
+    'X-RapidAPI-Key': process.env.API_KEY
   }
 };
   
