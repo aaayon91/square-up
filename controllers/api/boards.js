@@ -16,11 +16,17 @@ async function create(req, res) {
     req.body.user = req.user._id;
     console.log(req.body)
     const board = await Board.create(req.body);
+    // const board = new Board(req.body);
+    // board.save(function(err) {
+    //     if (err) return res.redirect('/boards/new');
+    //     // console.log(movie);
+    //     // res.redirect(`/movies/${movie._id}`);
+    // });
     res.json(board)
 }
 
 async function deleteBoard(req, res) {
-    await Board.remove({_id: req.body.board_id});
+    await Board.deleteOne({_id: req.body.board_id});
     const boards = await Board.find({}).populate({path: 'squares', populate: {path: 'user'}})
     res.json(boards)
 }

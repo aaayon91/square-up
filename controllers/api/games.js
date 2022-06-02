@@ -6,21 +6,23 @@ module.exports = {
 };
 
 async function getAll(req, res) {
-  var cutoff = new Date();
-  // cutoff.setDate(cutoff.getDate()-5);
-  // MyModel.find({modificationDate: {$lt: cutoff}}, function (err, docs) { ... });
   const games = await Game.find({scores: null})
   res.json(games)
 }
 
 async function create(req, res) {
-  // console.log('req: ', req)
-  if (await Game.findOne({id: req.id}).exec()) {
-    console.log(typeof(req.id))
-    // console.log('req: ', req)
-    // await Game.create(req);
+  let game = await Game.findOne({id: req.id}).exec()
+  // If game ended since last api call, update game
+  if ((game && !game.completed) && req.completed) {
+    game.completed = req.completed;
+    game.scores = req.scores;
+    game.last_update = req.last_update;
+    await game.save();
+    console.log('UPDATED 1!!!')
+  // If no change to game, leave alone
+  } else if (game && !req.completed) {
+  // If this is a new game, save to DB
   } else await Game.create(req);
-  // console.log('DONE!!!')
 }
 
 const options = {
@@ -33,22 +35,15 @@ const options = {
   }
 };
   
-axios.request(options).then(function (response) {
-  //   data = response.json()
-  // console.log('response.data: ', response.data)
-  //   console.log(response.data[1].scores);
-  // for(const key in response.data[1]) {
-  // console.log('HEEELLLLOOOOO: ', response.data[0]['scores'])
-  // }
-  return response.data;
-}).then(function (data) {
-  //   console.log('Data: ', typeof(data))
-  data.forEach(elem => {
-      create(elem);
-  });
-})
-.catch(function (error) {
-  console.error(error);
-});
+// axios.request(options).then(function (response) {
+//   return response.data;
+// }).then(function (data) {
+//   data.forEach(elem => {
+//       create(elem);
+//   });
+// })
+// .catch(function (error) {
+//   console.error(error);
+// });
 
   

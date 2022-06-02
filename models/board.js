@@ -15,10 +15,12 @@ const boardSchema = new Schema({
     visitTeam: {type: String},
     size: {
         type: Number,
-        default: 100
+        default: 100,
+        // required: true
     },
     entry: {
-        type: Number
+        type: Number,
+        // required: true
     },
     squares: [squareSchema],
     homeScore: {
