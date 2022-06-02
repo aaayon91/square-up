@@ -22,6 +22,8 @@ const boardSchema = new Schema({
         type: Number,
         // required: true
     },
+    // game: {type: Schema.Types.ObjectId, ref: 'Game'},
+    gameRef: {type: String},
     squares: [squareSchema],
     homeScore: {
         type: Number

@@ -1,4 +1,5 @@
 const Board = require('../../models/board');
+const Game = require('../../models/game');
 
 module.exports = {
     getAll,
@@ -14,7 +15,12 @@ async function getAll(req, res) {
 
 async function create(req, res) {
     req.body.user = req.user._id;
+    console.log('req.body.gameRef: ', req.body.gameRef)
+    let game = await Game.findOne({'id': req.body.gameRef}).exec()
+    req.body.homeTeam = game.home_team
+    req.body.visitTeam = game.away_team
     console.log(req.body)
+    console.log('game: ', game)
     const board = await Board.create(req.body);
     // const board = new Board(req.body);
     // board.save(function(err) {
