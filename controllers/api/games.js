@@ -1,4 +1,5 @@
 const Game = require('../../models/game');
+const Board = require('../../models/board')
 const axios = require("axios");
 
 module.exports = {
@@ -12,6 +13,7 @@ async function getAll(req, res) {
 
 async function create(req, res) {
   let game = await Game.findOne({id: req.id}).exec()
+  console.log(game)
   // If game ended since last api call, update game
   if ((game && !game.completed) && req.completed) {
     game.completed = req.completed;
@@ -19,11 +21,27 @@ async function create(req, res) {
     game.last_update = req.last_update;
     await game.save();
     console.log('UPDATED 1!!!')
+    updateBoards(game);
   // If no change to game, leave alone
-  } else if (game && !req.completed) {
+  } else if (game && ((!game.completed && !req.completed) || (game.completed && req.completed))) {
   // If this is a new game, save to DB
-  } else await Game.create(req);
+  console.log('REMAINED THE SAME')
+  } else {
+    await Game.create(req);
+    console.log('GAME CREATED!!')
+  }
 }
+
+async function updateBoards(game) {
+  console.log('gameRef: ', game.id)
+  await Board.updateMany({ gameRef: game.id }, { homeScore: game.scores[0]['score'], visitScore: game.scores[1]['score'] });
+  //Delete game from database after all boards have been updated
+  // deleteGames(game)
+}
+
+// async function deleteGames(game) {
+//   await Game.deleteOne({_id: game._id});
+// }
 
 const options = {
   method: 'GET',
