@@ -13,7 +13,7 @@ async function getAll(req, res) {
 
 async function create(req, res) {
   let game = await Game.findOne({id: req.id}).exec()
-  console.log(game)
+  // console.log(game)
   // If game ended since last api call, update game
   if ((game && !game.completed) && req.completed) {
     game.completed = req.completed;
@@ -27,8 +27,11 @@ async function create(req, res) {
   // If this is a new game, save to DB
   console.log('REMAINED THE SAME')
   } else {
-    await Game.create(req);
-    console.log('GAME CREATED!!')
+    let game = await Game.create(req);
+    console.log('GAME CREATED!!: ', game);
+    console.log('req.commence_time: ', game.commence_time);
+    let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
+    setTimeout(validateBoards(game), timeInterval)
   }
 }
 
@@ -42,6 +45,12 @@ async function updateBoards(game) {
 // async function deleteGames(game) {
 //   await Game.deleteOne({_id: game._id});
 // }
+
+//This function validates that each board is complete when the associated game starts.
+//Any board that is not complete will be considered invalid
+function validateBoards(game) {
+
+}
 
 const options = {
   method: 'GET',
