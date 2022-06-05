@@ -26,11 +26,19 @@ export default function BoardShowPage({boards, user, handleAddSquare, handleAddS
             </div>
             
         </div>
-        {
+        {/* {
             board.squares.length === board.size ?
                 <button type="submit" className="play-btn" onClick={handleClick} disabled={board.visitScore ? true : false}>PLAY!</button>
             :
                 null
+        } */}
+        {
+            (board.game_started && board.squares.length !== board.size) ?
+            // <div className='backdrop'>
+                <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
+            // </div>
+            :
+            null
         }
         </>
     );

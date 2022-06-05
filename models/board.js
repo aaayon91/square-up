@@ -15,12 +15,24 @@ const boardSchema = new Schema({
     visitTeam: {type: String},
     size: {
         type: Number,
-        default: 100
+        default: 100,
+        // required: true
     },
     entry: {
-        type: Number
+        type: Number,
+        // required: true
     },
+    // game: {type: Schema.Types.ObjectId, ref: 'Game'},
+    gameRef: {type: String},
     squares: [squareSchema],
+    validated: {
+        type: Boolean,
+        default: false
+    },
+    game_started: {
+        type: Boolean,
+        default: false
+    },
     homeScore: {
         type: Number
     },

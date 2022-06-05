@@ -1,4 +1,5 @@
 const Board = require('../../models/board');
+const Game = require('../../models/game');
 
 module.exports = {
     getAll,
@@ -14,12 +15,27 @@ async function getAll(req, res) {
 
 async function create(req, res) {
     req.body.user = req.user._id;
-    const board = await Board.create(req.body);
-    res.json(board)
+    console.log('req.body.gameRef: ', req.body.gameRef)
+    let game = await Game.findOne({'id': req.body.gameRef}).exec()
+    req.body.homeTeam = game.home_team
+    req.body.visitTeam = game.away_team
+    console.log(req.body)
+    console.log('game: ', game)
+    if (game.started === false) {
+        const board = await Board.create(req.body);
+        res.json(board)
+    }
+    // const board = new Board(req.body);
+    // board.save(function(err) {
+    //     if (err) return res.redirect('/boards/new');
+    //     // console.log(movie);
+    //     // res.redirect(`/movies/${movie._id}`);
+    // });
+    // res.json(board)
 }
 
 async function deleteBoard(req, res) {
-    await Board.remove({_id: req.body.board_id});
+    await Board.deleteOne({_id: req.body.board_id});
     const boards = await Board.find({}).populate({path: 'squares', populate: {path: 'user'}})
     res.json(boards)
 }
