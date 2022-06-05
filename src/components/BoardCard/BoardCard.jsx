@@ -31,7 +31,7 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
                 <div className="title">
                     <h2>ENTRY: ${board.entry}</h2>
                     {
-                         (board.user === user._id) ?
+                         (board.user === user._id && !board.squares.length) ?
                          <button className="nav-btn-2" ><Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button>
                          :
                          <></>

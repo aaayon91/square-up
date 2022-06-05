@@ -3,8 +3,8 @@ import TableSquare from "../TableSquare/TableSquare"
 export default function BoardTable({board, user, handleAddSquare}) {
     let winner;
 
-    if (board.visitScore) {
-        winner = parseInt(`${board.visitScore}${board.homeScore}`)
+    if (board.visitScore && board.validated) {
+        winner = parseInt(`${board.visitScore[board.visitScore.length - 1]}${board.homeScore[board.homeScore.length - 1]}`)
     }
 
     return (

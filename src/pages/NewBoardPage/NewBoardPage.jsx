@@ -8,8 +8,6 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
   const [games, setGames] = useState([]);
   const navigate = useNavigate();
   const [content, setContent] = useState({
-    // homeTeam: '',
-    // visitTeam: '',
     gameRef: '',
     size: '',
     entry: ''
@@ -29,19 +27,6 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
   }
 
   function handleSelect(evt) {
-    console.log(evt.target.value)
-    // let visitTeam = evt.target.value.split(' @ ')[0].split(' ')
-    // if (visitTeam[0] === 'Boston' || visitTeam[0] === 'Toronto' || visitTeam[0] === 'Chicago') {
-    //   visitTeam.shift();
-    //   visitTeam = visitTeam.join(' ')
-    // } else visitTeam = visitTeam.pop();
-    // let homeTeam = evt.target.value.split(' @ ')[1].split(' ');
-    // homeTeam.pop();
-    // if (homeTeam[0] === 'Boston' || homeTeam[0] === 'Toronto' || homeTeam[0] === 'Chicago') {
-    //   homeTeam.shift();
-    //   homeTeam = homeTeam.join(' ')
-    // } else homeTeam = homeTeam.pop();
-    // setContent({...content, ['homeTeam']: homeTeam, ['visitTeam']: visitTeam })
     setContent({...content, ['gameRef']: evt.target.value})
   }
     

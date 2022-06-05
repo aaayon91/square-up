@@ -7,6 +7,10 @@ const gameSchema = new Schema({
     sport_key: {type: String},
     sport_title: {type: String},
     commence_time: {type: String},
+    started: {
+        type: Boolean,
+        default: false
+    },
     completed: {type: Boolean},
     home_team: {type: String},
     away_team: {type: String},

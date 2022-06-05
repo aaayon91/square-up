@@ -4,9 +4,9 @@ export default function TableSquare({board, user, handleAddSquare, pos, winner})
     const square = getSquare()
 
     async function handleClick() {
-        if (board.game_started === false) {
+        // if (board.game_started === false) {
             await handleAddSquare(board, pos);
-        }
+        // }
     }
 
     function getSquare() {

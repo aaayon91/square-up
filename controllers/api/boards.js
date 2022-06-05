@@ -21,14 +21,17 @@ async function create(req, res) {
     req.body.visitTeam = game.away_team
     console.log(req.body)
     console.log('game: ', game)
-    const board = await Board.create(req.body);
+    if (game.started === false) {
+        const board = await Board.create(req.body);
+        res.json(board)
+    }
     // const board = new Board(req.body);
     // board.save(function(err) {
     //     if (err) return res.redirect('/boards/new');
     //     // console.log(movie);
     //     // res.redirect(`/movies/${movie._id}`);
     // });
-    res.json(board)
+    // res.json(board)
 }
 
 async function deleteBoard(req, res) {
