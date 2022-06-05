@@ -25,13 +25,6 @@ async function create(req, res) {
         const board = await Board.create(req.body);
         res.json(board)
     }
-    // const board = new Board(req.body);
-    // board.save(function(err) {
-    //     if (err) return res.redirect('/boards/new');
-    //     // console.log(movie);
-    //     // res.redirect(`/movies/${movie._id}`);
-    // });
-    // res.json(board)
 }
 
 async function deleteBoard(req, res) {

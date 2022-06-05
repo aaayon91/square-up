@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const gameSchema = new Schema({
-    // user: { type: Schema.Types.ObjectId, ref: 'User' },
     id: {type: String},
     sport_key: {type: String},
     sport_title: {type: String},

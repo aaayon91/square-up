@@ -14,7 +14,6 @@ async function getAll(req, res) {
 
 async function create(req, res) {
   let game = await Game.findOne({id: req.id}).exec()
-  // console.log(game)
   // If game ended since last api call, update game
   if ((game && !game.completed) && req.completed) {
     game.completed = req.completed;
@@ -26,13 +25,10 @@ async function create(req, res) {
   // If no change to game, leave alone
   } else if ((game && ((!game.completed && !req.completed) || (game.completed && req.completed))) || (!game && req.scores)) {
   // If this is a new game, save to DB
-  console.log('REMAINED THE SAME')
   } else {
     let game = await Game.create(req);
     console.log('GAME CREATED!!: ', game);
-    console.log('req.commence_time: ', game.commence_time);
     let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
-    console.log(timeInterval)
     setTimeout(() => validateBoards(game), timeInterval)
   }
 }

@@ -8,9 +8,9 @@ export default function BoardShowPage({boards, user, handleAddSquare, handleAddS
     let { boardId } = useParams();
     let board = boards.find((bor) => bor._id === boardId);
 
-    async function handleClick() {
-        await handleAddScores(board._id);
-    }
+    // async function handleClick() {
+    //     await handleAddScores(board._id);
+    // }
 
     return (
         <>
@@ -34,9 +34,7 @@ export default function BoardShowPage({boards, user, handleAddSquare, handleAddS
         } */}
         {
             (board.game_started && board.squares.length !== board.size) ?
-            // <div className='backdrop'>
                 <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
-            // </div>
             :
             null
         }
