@@ -80,4 +80,5 @@ function fetchGames() {
   });
 }
 
-fetchGames();
+setInterval(() => fetchGames(), 14400000)
+// fetchGames();

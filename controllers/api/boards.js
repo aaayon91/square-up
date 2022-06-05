@@ -5,7 +5,7 @@ module.exports = {
     getAll,
     create,
     deleteBoard,
-    updateBoard
+    // updateBoard
 };
 
 async function getAll(req, res) {
@@ -33,10 +33,10 @@ async function deleteBoard(req, res) {
     res.json(boards)
 }
 
-async function updateBoard(req, res) {
-    const board = await Board.findById(req.body.board_id)
-    board.homeScore = Math.floor(Math.random() * 10);
-    board.visitScore = Math.floor(Math.random() * 10);
-    await board.save();
-    res.json(board)
-}
+// async function updateBoard(req, res) {
+//     const board = await Board.findById(req.body.board_id)
+//     board.homeScore = Math.floor(Math.random() * 10);
+//     board.visitScore = Math.floor(Math.random() * 10);
+//     await board.save();
+//     res.json(board)
+// }
