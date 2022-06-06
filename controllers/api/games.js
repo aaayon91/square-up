@@ -9,7 +9,7 @@ module.exports = {
 
 async function getAll(req, res) {
   // const games = await Game.find({scores: null})
-  const games = await Game.find({started: false})
+  const games = await Game.find({started: false, completed: false})
   res.json(games)
 }
 
@@ -81,8 +81,8 @@ function fetchGames() {
   });
 }
 
-setInterval(() => fetchGames(), 14400000)
-// fetchGames();
+setInterval(() => fetchGames(), 14400000) //every 4 hours
+fetchGames();
 
 //Keep Heroku awake
 setInterval(function() {
