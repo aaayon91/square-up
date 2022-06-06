@@ -1,6 +1,7 @@
 const Game = require('../../models/game');
 const Board = require('../../models/board')
 const axios = require("axios");
+const http = require("http");
 
 module.exports = {
   getAll,
@@ -82,3 +83,8 @@ function fetchGames() {
 
 setInterval(() => fetchGames(), 14400000)
 // fetchGames();
+
+//Keep Heroku awake
+setInterval(function() {
+  http.get("http://square-up-app.herokuapp.com");
+}, 1500000); // every 25 minutes
