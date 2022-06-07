@@ -42,7 +42,6 @@ async function updateBoards(game) {
   console.log('gameRef: ', game.id)
   await Board.updateMany({ gameRef: game.id }, { homeScore: game.scores[0]['score'], visitScore: game.scores[1]['score'] });
   //Delete game from database after all boards have been updated
-  // deleteGames(game)
 }
 
 //This function validates that each board is complete based on the associated game start time.
@@ -87,7 +86,7 @@ function fetchGames() {
   });
 }
 
-setInterval(() => fetchGames(), 10800000) //every 3 hours
+setInterval(() => fetchGames(), 10800000); //every 3 hours
 fetchGames();
 
 //Keep Heroku awake
