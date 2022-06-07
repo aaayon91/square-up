@@ -87,8 +87,8 @@ function fetchGames() {
   });
 }
 
-// setInterval(() => fetchGames(), 10800000) //every 3 hours
-// fetchGames();
+setInterval(() => fetchGames(), 10800000) //every 3 hours
+fetchGames();
 
 //Keep Heroku awake
 setInterval(function() {
