@@ -1,10 +1,10 @@
 import './BoardListPage.css'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import * as usersService from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
 import BoardCard from '../../components/BoardCard/BoardCard';
 
-export default function BoardListPage({ boards, setBoards, user, board, setUser, handleDeleteBoard }) {
+export default function BoardListPage({ boards, setBoards, user, handleDeleteBoard }) {
 
     useEffect(function () {
         async function fetchAllBoards() {

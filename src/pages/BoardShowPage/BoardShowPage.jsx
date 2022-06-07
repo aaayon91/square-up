@@ -1,43 +1,46 @@
 import './BoardShowPage.css'
 import { useParams } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BoardTable from "../../components/BoardTable/BoardTable";
+import * as boardsAPI from '../../utilities/boards-api';
 
-export default function BoardShowPage({boards, user, handleAddSquare, handleAddScores}) {
-
+export default function BoardShowPage({user, handleAddSquare}) {
     let { boardId } = useParams();
-    let board = boards.find((bor) => bor._id === boardId);
+    const [board, setBoard] = useState(null)
+    
+    useEffect(() => {
+        async function fetchBoard() {
+              const board = await boardsAPI.getOne(boardId);
+              setBoard(board);
+            }
+            fetchBoard();
+    }, []);
 
-    // async function handleClick() {
-    //     await handleAddScores(board._id);
-    // }
-
-    return (
-        <>
-        <div className='show-page'>
-            <aside>
-                <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{board.visitScore ? `${board.visitScore}` : null}</span></h1>
-            </aside>
-            <div className="show-page-div">
-                <h1 className='outline-text'>
-                    {board.homeTeam}: <span className="span-outline" >{board.homeScore ? `${board.homeScore}` : null}</span>
-                </h1>
-                <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
+    if(board !== null){
+        return (
+            <>
+            <div className='show-page'>
+                <aside>
+                    <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{board.visitScore ? `${board.visitScore}` : null}</span></h1>
+                </aside>
+                <div className="show-page-div">
+                    <h1 className='outline-text'>
+                        {board.homeTeam}: <span className="span-outline" >{board.homeScore ? `${board.homeScore}` : null}</span>
+                    </h1>
+                    <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
+                </div>
+                
             </div>
-            
-        </div>
-        {/* {
-            board.squares.length === board.size ?
-                <button type="submit" className="play-btn" onClick={handleClick} disabled={board.visitScore ? true : false}>PLAY!</button>
-            :
+            {
+                (board.game_started && board.squares.length !== board.size) ?
+                    <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
+                :
                 null
-        } */}
-        {
-            (board.game_started && board.squares.length !== board.size) ?
-                <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
-            :
-            null
-        }
-        </>
-    );
+            }
+            </>
+        );
+    }
+
+    return <></>
+
 }

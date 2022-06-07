@@ -51,7 +51,7 @@ export default function NewBoardPage({user, setUser, handleAddBoard}) {
           <select name="game" style={{textAlign:"center"}} onChange={handleSelect} >
             <option disabled selected value> -- select an option -- </option>
             {games.map((game, idx) => (
-              <option value={game.id} key={game._id}>{game.away_team} @ {game.home_team} {game.commence_time.split('T')[0]}</option>
+              <option value={game.id} key={game._id}>{game.away_team} @ {game.home_team} {game.commence_time}</option>
             ))}
           </select>
           {/* <label>HOME TEAM:</label>

@@ -5,6 +5,10 @@ export function getAll() {
     return sendRequest(BASE_URL);
 }
 
+export function getOne(boardId) {
+    return sendRequest(`${BASE_URL}/${boardId}`);
+}
+
 export function add(boardData) {
     return sendRequest(BASE_URL, 'POST', boardData);
 }

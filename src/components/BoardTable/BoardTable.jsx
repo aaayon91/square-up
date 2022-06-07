@@ -5,7 +5,6 @@ export default function BoardTable({board, user, handleAddSquare}) {
 
     if (board.visitScore && board.validated) {
         winner = parseInt(`${board.visitScore}${board.homeScore}`)
-        console.log(board.visitScore)
     }
 
     return (

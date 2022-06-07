@@ -27,10 +27,13 @@ async function create(req, res) {
   } else if ((game && ((!game.completed && !req.completed) || (game.completed && req.completed))) || (!game && req.scores)) {
   // If this is a new game, save to DB
   } else {
-    let game = await Game.create(req);
-    console.log('GAME CREATED!!: ', game);
-    let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
-    setTimeout(() => validateBoards(game), timeInterval)
+    let timeInterval =  new Date(req.commence_time) - new Date(Date.now());
+    if (timeInterval > 0) {
+      let game = await Game.create(req);
+      console.log('GAME CREATED!!: ', game);
+      // let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
+      setTimeout(() => validateBoards(game), timeInterval)
+    }
   }
 }
 
@@ -58,6 +61,7 @@ function validateBoards(game) {
   setGameStarted(game)
 }
 
+//API CALLS:
 const options = {
   method: 'GET',
   url: 'https://odds.p.rapidapi.com/v4/sports/baseball_mlb/scores/?daysFrom=3',
@@ -73,7 +77,8 @@ function fetchGames() {
     return response.data;
   }).then(function (data) {
     data.forEach(elem => {
-        create(elem);
+      elem.commence_time = new Date(elem.commence_time).toLocaleString();
+      create(elem);
     });
   })
   .catch(function (error) {
@@ -81,8 +86,8 @@ function fetchGames() {
   });
 }
 
-setInterval(() => fetchGames(), 14400000) //every 4 hours
-fetchGames();
+// setInterval(() => fetchGames(), 14400000) //every 4 hours
+// fetchGames();
 
 //Keep Heroku awake
 setInterval(function() {
