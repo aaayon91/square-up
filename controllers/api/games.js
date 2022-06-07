@@ -25,6 +25,7 @@ async function create(req, res) {
     updateBoards(game);
   // If no change to game, leave alone
   } else if ((game && ((!game.completed && !req.completed) || (game.completed && req.completed))) || (!game && req.scores)) {
+    console.log("No Change")
   // If this is a new game, save to DB
   } else {
     let timeInterval =  new Date(req.commence_time) - new Date(Date.now());
@@ -86,7 +87,7 @@ function fetchGames() {
   });
 }
 
-// setInterval(() => fetchGames(), 14400000) //every 4 hours
+setInterval(() => fetchGames(), 10800000) //every 3 hours
 // fetchGames();
 
 //Keep Heroku awake
