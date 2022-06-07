@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import BoardTable from "../../components/BoardTable/BoardTable";
 import * as boardsAPI from '../../utilities/boards-api';
+import * as squaresAPI from '../../utilities/squares-api';
 
-export default function BoardShowPage({user, handleAddSquare}) {
+export default function BoardShowPage({user}) {
     let { boardId } = useParams();
     const [board, setBoard] = useState(null)
     
@@ -15,6 +16,12 @@ export default function BoardShowPage({user, handleAddSquare}) {
             }
             fetchBoard();
     }, []);
+
+    async function handleAddSquare(boardId, pos) {
+        await squaresAPI.addSquare(boardId, pos)
+        const board = await boardsAPI.getOne(boardId);
+        setBoard(board);
+      }
 
     if(board !== null){
         return (

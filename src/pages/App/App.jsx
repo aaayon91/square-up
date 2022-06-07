@@ -8,7 +8,7 @@ import BoardShowPage from '../BoardShowPage/BoardShowPage';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
-import * as squaresAPI from '../../utilities/squares-api';
+// import * as squaresAPI from '../../utilities/squares-api';
 
 let f=0;
 export default function App() {
@@ -36,11 +36,11 @@ export default function App() {
     setBoards(boards);
   } 
 
-  async function handleAddSquare(board, pos) {
-    await squaresAPI.addSquare(board, pos)
-    const boards = await boardsAPI.getAll();
-    setBoards(boards);
-  }
+  // async function handleAddSquare(board, pos) {
+  //   await squaresAPI.addSquare(board, pos)
+  //   const boards = await boardsAPI.getAll();
+  //   setBoards(boards);
+  // }
 
   return (
     <main className="App">
@@ -52,7 +52,7 @@ export default function App() {
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
             <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } />
-            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} handleAddSquare={handleAddSquare} />} />
+            <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} />} />
             <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
 

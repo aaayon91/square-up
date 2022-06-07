@@ -4,7 +4,7 @@ export default function TableSquare({board, user, handleAddSquare, pos, winner})
     const square = getSquare()
 
     async function handleClick() {
-        await handleAddSquare(board, pos);
+        await handleAddSquare(board._id, pos);
     }
 
     function getSquare() {

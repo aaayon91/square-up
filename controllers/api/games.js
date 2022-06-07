@@ -45,10 +45,6 @@ async function updateBoards(game) {
   // deleteGames(game)
 }
 
-// async function deleteGames(game) {
-//   await Game.deleteOne({_id: game._id});
-// }
-
 //This function validates that each board is complete based on the associated game start time.
 //Any board that is not complete will be considered invalid
 function validateBoards(game) {
@@ -61,6 +57,10 @@ function validateBoards(game) {
   }
   setGameStarted(game)
 }
+
+// async function deleteGames(game) {
+//   await Game.deleteOne({_id: game._id});
+// }
 
 //API CALLS:
 const options = {
@@ -87,7 +87,7 @@ function fetchGames() {
   });
 }
 
-setInterval(() => fetchGames(), 10800000) //every 3 hours
+// setInterval(() => fetchGames(), 10800000) //every 3 hours
 // fetchGames();
 
 //Keep Heroku awake

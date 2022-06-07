@@ -5,7 +5,7 @@ module.exports = {
 };
 
 async function create(req, res) {
-    const board = await Board.findById(req.body.board._id).populate({path: 'squares', populate: {path: 'user'}});
+    const board = await Board.findById(req.body.boardId).populate({path: 'squares', populate: {path: 'user'}});
     if (board.game_started === false) {
         board.squares.push({user: req.user, pos: req.body.pos})
         await board.save();
