@@ -28,11 +28,11 @@ export default function BoardShowPage({user}) {
             <>
             <div className='show-page'>
                 <aside>
-                    <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{board.visitScore ? `${board.visitScore}` : null}</span></h1>
+                    <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{(board.visitScore || board.visitScore === 0) ? `${board.visitScore}` : null}</span></h1>
                 </aside>
                 <div className="show-page-div">
                     <h1 className='outline-text'>
-                        {board.homeTeam}: <span className="span-outline" >{board.homeScore ? `${board.homeScore}` : null}</span>
+                        {board.homeTeam}: <span className="span-outline" >{(board.homeScore || board.homeScore === 0) ? `${board.homeScore}` : null}</span>
                     </h1>
                     <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
                 </div>
