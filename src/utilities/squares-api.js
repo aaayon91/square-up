@@ -5,6 +5,10 @@ export function addSquare(boardId, pos) {
     return sendRequest(BASE_URL, 'POST', {boardId, pos});
 }
 
+export function deleteSquare(boardId, pos) {
+    return sendRequest(BASE_URL, 'DELETE', {boardId, pos});
+}
+
 // Helper Function
 async function sendRequest(url, method = 'GET', payload = null) {
     // Fetch accepts an options object as the 2nd argument

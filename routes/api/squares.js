@@ -5,5 +5,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
 // POST /api/squares
 router.post('/', squaresCtrl.create);
+router.delete('/', squaresCtrl.deleteSquare);
 
 module.exports = router;
