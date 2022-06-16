@@ -1,6 +1,6 @@
 import TableSquare from "../TableSquare/TableSquare"
 
-export default function BoardTable({board, user, handleAddSquare}) {
+export default function BoardTable({board, user, handleAddSquare, handleDeleteSquare}) {
     let winner;
     let arr = [...Array(Math.sqrt(board.size)).keys()]
 
@@ -21,7 +21,7 @@ export default function BoardTable({board, user, handleAddSquare}) {
                         <tr>
                             <th scope="row" >{row}</th>
                             {arr.map((col, idx) => (
-                                <td><TableSquare board={board} user={user} pos={(row * 10) + col} handleAddSquare={handleAddSquare} winner={winner}/></td>
+                                <td><TableSquare board={board} user={user} pos={(row * 10) + col} handleAddSquare={handleAddSquare} handleDeleteSquare={handleDeleteSquare} winner={winner}/></td>
                             ))}
                         </tr>
                     ))}

@@ -21,7 +21,13 @@ export default function BoardShowPage({user}) {
         await squaresAPI.addSquare(boardId, pos)
         const board = await boardsAPI.getOne(boardId);
         setBoard(board);
-      }
+    }
+
+    async function handleDeleteSquare(boardId, pos) {
+        await squaresAPI.deleteSquare(boardId, pos)
+        const board = await boardsAPI.getOne(boardId);
+        setBoard(board);
+    }
 
     if(board !== null){
         return (
@@ -34,7 +40,7 @@ export default function BoardShowPage({user}) {
                     <h1 className='outline-text'>
                         {board.homeTeam}: <span className="span-outline" >{(board.homeScore || board.homeScore === 0) ? `${board.homeScore}` : null}</span>
                     </h1>
-                    <BoardTable board={board} user={user} handleAddSquare={handleAddSquare}/>
+                    <BoardTable board={board} user={user} handleAddSquare={handleAddSquare} handleDeleteSquare={handleDeleteSquare}/>
                 </div>
                 
             </div>
