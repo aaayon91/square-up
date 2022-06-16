@@ -1,21 +1,14 @@
-import { useState } from 'react/cjs/react.production.min';
 import './TableSquare.css'
 
 export default function TableSquare({board, user, handleAddSquare, handleDeleteSquare, pos, winner}) {
-    // const [click, setClick] = useState(true)
     const square = getSquare()
 
     async function handleAdd() {
         await handleAddSquare(board._id, pos);
-        console.log('Added')
-        // setClick(false)
-        // console.log(board)
     }
 
     async function handleDelete() {
-        console.log('Deleted')
         await handleDeleteSquare(board._id, pos);
-        // console.log(board)
     }
 
     function getSquare() {
@@ -26,6 +19,3 @@ export default function TableSquare({board, user, handleAddSquare, handleDeleteS
             { square ? square.user.name : pos }
         </button>
 }
-
-// type="submit"
-// disabled={square}

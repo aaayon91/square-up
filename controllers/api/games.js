@@ -86,10 +86,10 @@ function fetchGames() {
   });
 }
 
-// setInterval(() => fetchGames(), 10800000); //every 3 hours
-// fetchGames();
+setInterval(() => fetchGames(), 10800000); //every 3 hours
+fetchGames();
 
-//Keep Heroku awake
-// setInterval(function() {
-//   http.get("http://square-up-app.herokuapp.com");
-// }, 1500000); // every 25 minutes
+// Keep Heroku awake
+setInterval(function() {
+  http.get("http://square-up-app.herokuapp.com");
+}, 1500000); // every 25 minutes
