@@ -22,9 +22,10 @@ export default function TableSquare({board, user, handleAddSquare, handleDeleteS
         return board.squares.find(square => square.pos === pos) || null
     }
 
-    return <button type="submit" style={{backgroundColor: square ? 'grey' : '#FA532E', border: (winner === pos) ? "5px solid red" : null}} onClick={square ? () => handleDelete() : () => handleAdd()} id={pos} className="table-square-btn" >
-            { square ? square.user.name : null }
+    return <button style={{backgroundColor: square ? 'grey' : '#FA532E', border: (winner === pos) ? "5px solid red" : null}} onClick={square ? () => handleDelete() : () => handleAdd()} id={pos} className="table-square-btn" >
+            { square ? square.user.name : pos }
         </button>
 }
 
+// type="submit"
 // disabled={square}

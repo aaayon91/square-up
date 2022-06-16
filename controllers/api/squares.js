@@ -23,6 +23,14 @@ async function create(req, res) {
 }
 
 async function deleteSquare(req, res) {
-    const board = await Board.updateOne({_id: req.body.boardId}, {$pull: {squares: {pos: req.body.pos, user: req.user}}});
+    let board = await Board.findById(req.body.boardId)
+    if (board.game_started === false) {
+        await Board.updateOne({_id: req.body.boardId}, {$pull: {squares: {pos: req.body.pos, user: req.user}}});
+        board = await Board.findById(req.body.boardId);
+    };
+    if (board.squares.length === board.size - 1) {
+        board.validated = false;
+        await board.save();
+    }
     res.json({board})
 }

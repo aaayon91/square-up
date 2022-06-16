@@ -21,17 +21,17 @@ async function create(req, res) {
     game.scores = req.scores;
     game.last_update = req.last_update;
     await game.save();
-    console.log('UPDATED 1!!!')
+    // console.log('UPDATED 1!!!')
     updateBoards(game);
   // If no change to game, leave alone
   } else if ((game && ((!game.completed && !req.completed) || (game.completed && req.completed))) || (!game && req.scores)) {
-    console.log("No Change")
+    // console.log("No Change")
   // If this is a new game, save to DB
   } else {
     let timeInterval =  new Date(req.commence_time) - new Date(Date.now());
     if (timeInterval > 0) {
       let game = await Game.create(req);
-      console.log('GAME CREATED!!: ', game);
+      // console.log('GAME CREATED!!: ', game);
       // let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
       setTimeout(() => validateBoards(game), timeInterval)
     }
@@ -39,7 +39,7 @@ async function create(req, res) {
 }
 
 async function updateBoards(game) {
-  console.log('gameRef: ', game.id)
+  // console.log('gameRef: ', game.id)
   await Board.updateMany({ gameRef: game.id }, { homeScore: game.scores[0]['score'], visitScore: game.scores[1]['score'] });
   //Delete game from database after all boards have been updated
 }
@@ -50,9 +50,9 @@ function validateBoards(game) {
   async function setGameStarted(game) {
     game.started = true;
     await game.save();
-    console.log(game)
+    // console.log(game)
     await Board.updateMany({ gameRef: game.id }, { game_started: true });
-    console.log("Set Game Started to True!!!!")
+    // console.log("Set Game Started to True!!!!")
   }
   setGameStarted(game)
 }
