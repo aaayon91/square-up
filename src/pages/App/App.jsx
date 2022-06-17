@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
 import NewBoardPage from '../NewBoardPage/NewBoardPage';
@@ -15,6 +15,14 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [form, setForm] = useState(1);
   const [boards, setBoards] = useState([]);
+
+  useEffect(function () {
+    async function fetchAllBoards() {
+      const boards = await boardsAPI.getAll();
+      setBoards(boards);
+    }
+    fetchAllBoards();
+  }, []);
 
   function formDisplayed(evt) {
       f = f + 1;
@@ -34,17 +42,10 @@ export default function App() {
     await boardsAPI.deleteBoard({board_id})
     const boards = await boardsAPI.getAll();
     setBoards(boards);
-  } 
-
-  // async function handleAddSquare(board, pos) {
-  //   await squaresAPI.addSquare(board, pos)
-  //   const boards = await boardsAPI.getAll();
-  //   setBoards(boards);
-  // }
+  }
 
   return (
     <main className="App">
-
       {
         user ? 
         <>
@@ -52,6 +53,7 @@ export default function App() {
           <Routes>
             <Route path="/boards/new" element={ <NewBoardPage user={user} setUser={setUser} handleAddBoard={handleAddBoard}/> } />
             <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } />
+            {/* <Route path="/boards" element={ <BoardListPage user={user} setUser={setUser} boards={boards.filter(board => board.game_started === false)} setBoards={setBoards} handleAddBoard={handleAddBoard} handleDeleteBoard={handleDeleteBoard}/> } /> */}
             <Route path="/boards/:boardId" element={<BoardShowPage boards={boards} user={user} />} />
             <Route path="/*" element={<Navigate to="/boards" />} /> 
           </Routes>
