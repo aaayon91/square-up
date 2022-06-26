@@ -1,8 +1,14 @@
 .show-page {
     /* position: absolute; */
     display:flex;
+    /* width: 100%; */
+    position: relative;
+    overflow: auto;
+    /* overflow-x: auto; */
     align-items: center;
     justify-content: center;
+    
+    min-width: 960px;
 }
 
 .show-page-div {
@@ -14,6 +20,7 @@
 aside {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    /* overflow: auto; */
     padding-left: 20px;
 }
 
@@ -26,7 +33,7 @@ table {
 th {
     background-color: black;
     color: white;
-    width: 70px;
+    min-width: 70px;
     height: 70px;
     border-radius: 15px;
     margin: 30px;

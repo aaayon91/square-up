@@ -12,6 +12,8 @@
   align-items: center;
   justify-content: flex-end;
   background-color: white;
+
+  min-width: 960px;
 }
 
 .nav-btn {

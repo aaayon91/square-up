@@ -9,7 +9,7 @@ module.exports = {
 
 async function getAll(req, res) {
   // const games = await Game.find({scores: null})
-  const games = await Game.find({started: false, completed: false})
+  const games = await Game.find({started: false, completed: false}).sort({commence_time: 'asc'})
   res.json(games)
 }
 
