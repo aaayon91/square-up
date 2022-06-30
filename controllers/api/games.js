@@ -5,12 +5,17 @@ const http = require("http");
 
 module.exports = {
   getAll,
+  getOne
 };
 
 async function getAll(req, res) {
-  // const games = await Game.find({scores: null})
   const games = await Game.find({started: false, completed: false}).sort({commence_time: 'asc'})
   res.json(games)
+}
+
+async function getOne(req, res) {
+  const game = await Game.findOne({id: req.params.gameRef})
+  res.json(game)
 }
 
 async function create(req, res) {
@@ -32,14 +37,12 @@ async function create(req, res) {
     if (timeInterval > 0) {
       let game = await Game.create(req);
       // console.log('GAME CREATED!!: ', game);
-      // let timeInterval =  new Date(game.commence_time) - new Date(Date.now());
       setTimeout(() => validateBoards(game), timeInterval)
     }
   }
 }
 
 async function updateBoards(game) {
-  // console.log('gameRef: ', game.id)
   await Board.updateMany({ gameRef: game.id }, { homeScore: game.scores[0]['score'], visitScore: game.scores[1]['score'] });
   //Delete game from database after all boards have been updated
 }
@@ -50,7 +53,6 @@ function validateBoards(game) {
   async function setGameStarted(game) {
     game.started = true;
     await game.save();
-    // console.log(game)
     await Board.updateMany({ gameRef: game.id }, { game_started: true });
     // console.log("Set Game Started to True!!!!")
   }

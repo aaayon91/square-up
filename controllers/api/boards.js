@@ -6,7 +6,6 @@ module.exports = {
     getOne,
     create,
     deleteBoard,
-    // updateBoard
 };
 
 async function getAll(req, res) {

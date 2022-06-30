@@ -22,8 +22,8 @@ const boardSchema = new Schema({
         type: Number,
         // required: true
     },
-    // game: {type: Schema.Types.ObjectId, ref: 'Game'},
     gameRef: {type: String},
+    game: { type: Schema.Types.Object, ref: 'Game' },
     squares: [squareSchema],
     validated: {
         type: Boolean,

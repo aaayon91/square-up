@@ -8,7 +8,6 @@ module.exports = {
 async function create(req, res) {
     // const board = await Board.findById(req.body.boardId).populate({path: 'squares', populate: {path: 'user'}});
     const board = await Board.findById(req.body.boardId);
-    // const sq = await board.squares.map(elem => elem.pos).includes(req.body.pos)
     const sq = await board.squares.find(elem => elem.pos === req.body.pos)
     if (board.game_started === false && !sq) {
         await board.squares.push({user: req.user, pos: req.body.pos})

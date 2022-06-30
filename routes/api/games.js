@@ -6,4 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn')
 // GET /api/games
 router.get('/', gamesCtrl.getAll);
 
+router.get('/:gameRef', gamesCtrl.getOne);
+
 module.exports = router;

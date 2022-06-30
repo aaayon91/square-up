@@ -1,5 +1,5 @@
 import './BoardShowPage.css'
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import BoardTable from "../../components/BoardTable/BoardTable";
 import * as boardsAPI from '../../utilities/boards-api';
@@ -7,11 +7,13 @@ import * as squaresAPI from '../../utilities/squares-api';
 
 export default function BoardShowPage({user}) {
     let { boardId } = useParams();
-    const [board, setBoard] = useState(null)
+    const [board, setBoard] = useState(null);
+    const location = useLocation();
+    const {game} = location.state;
     
     useEffect(() => {
         async function fetchBoard() {
-              const board = await boardsAPI.getOne(boardId);
+            const board = await boardsAPI.getOne(boardId);
               setBoard(board);
             }
             fetchBoard();
@@ -42,7 +44,6 @@ export default function BoardShowPage({user}) {
                     </h1>
                     <BoardTable board={board} user={user} handleAddSquare={handleAddSquare} handleDeleteSquare={handleDeleteSquare}/>
                 </div>
-                
             </div>
             {
                 (board.game_started && board.squares.length !== board.size) ?

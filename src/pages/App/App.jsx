@@ -8,12 +8,10 @@ import BoardShowPage from '../BoardShowPage/BoardShowPage';
 import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
 import * as boardsAPI from '../../utilities/boards-api';
-// import * as squaresAPI from '../../utilities/squares-api';
 
-let f=0;
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const [form, setForm] = useState(1);
+  const [form, setForm] = useState(true);
   const [boards, setBoards] = useState([]);
 
   useEffect(function () {
@@ -23,15 +21,6 @@ export default function App() {
     }
     fetchAllBoards();
   }, []);
-
-  function formDisplayed(evt) {
-      f = f + 1;
-      if (f % 2 === 0) {
-          setForm(1);
-      } else {
-          setForm(null);
-      }
-  }
 
   async function handleAddBoard(boardData) {
     const board = await boardsAPI.add(boardData)
@@ -61,7 +50,7 @@ export default function App() {
         </>
         :
         <>
-          <NavBar user={user} setUser={setUser} form={form} formDisplayed={formDisplayed}/>
+          <NavBar user={user} setUser={setUser} form={form} setForm={setForm} />
           <AuthPage setUser={setUser} form={form}/>
         </>
       }

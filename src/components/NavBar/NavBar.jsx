@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import * as userService from '../../utilities/users-service'
 
-export default function NavBar({user, setUser, form, formDisplayed}) {
+export default function NavBar({user, setUser, form, setForm}) {
 
     function handleLogOut() {
         userService.logOut();
@@ -22,10 +22,10 @@ export default function NavBar({user, setUser, form, formDisplayed}) {
             <>
                 {
                     form ?
-                        <button className="nav-btn" onClick={formDisplayed}>SIGN UP</button>
+                        <button className="nav-btn" onClick={() => setForm(false)}>SIGN UP</button>
 
                     :
-                        <button className="nav-btn" onClick={formDisplayed}>LOG IN</button>
+                        <button className="nav-btn" onClick={() => setForm(true)}>LOG IN</button>
                 }
             </>
             }

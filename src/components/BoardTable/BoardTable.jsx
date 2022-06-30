@@ -2,6 +2,7 @@ import TableSquare from "../TableSquare/TableSquare"
 
 export default function BoardTable({board, user, handleAddSquare, handleDeleteSquare}) {
     let winner;
+    console.log('Table Board: ', board)
     let arr = [...Array(Math.sqrt(board.size)).keys()]
 
     if ((board.visitScore || board.visitScore === 0) && board.validated) {
