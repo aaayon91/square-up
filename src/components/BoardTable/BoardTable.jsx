@@ -1,23 +1,26 @@
 import TableSquare from "../TableSquare/TableSquare"
 
-export default function BoardTable({board, user, handleAddSquare, handleDeleteSquare}) {
-    let winner;
-    console.log('Table Board: ', board)
+export default function BoardTable({board, user, handleAddSquare, handleDeleteSquare, winner}) {
     let arr = [...Array(Math.sqrt(board.size)).keys()]
 
-    if ((board.visitScore || board.visitScore === 0) && board.validated) {
-        winner = parseInt(`${board.visitScore % 10}${board.homeScore % 10}`)
-    }
-
     return (
+        <div id="table-scroll" className="table-scroll">
             <table>
-                <tbody>
+                <thead>
                     <tr>
-                        <td style={{backgroundColor: 'black', borderRadius: '15px', color: 'white', fontWeight: 'bold'}}>${board.entry}<br></br>/SQ</td>
+                        <th style={{backgroundColor: 'black', borderRadius: '15px', color: 'white', fontWeight: 'bold'}}>${board.entry}<br></br>/SQ</th>
+                            {arr.map((col, idx) => (
+                                <th>{col}</th>
+                            ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* <tr>
+                        <th style={{backgroundColor: 'black', borderRadius: '15px', color: 'white', fontWeight: 'bold'}}>${board.entry}<br></br>/SQ</th>
                         {arr.map((col, idx) => (
                             <th>{col}</th>
                         ))}
-                    </tr>
+                    </tr> */}
                     {arr.map((row, idx) => (
                         <tr>
                             <th>{row}</th>
@@ -28,5 +31,6 @@ export default function BoardTable({board, user, handleAddSquare, handleDeleteSq
                     ))}
                 </tbody>
             </table>
+        </div>
     )
 }

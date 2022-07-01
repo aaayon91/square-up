@@ -31,14 +31,14 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
 
   return (
     <>
-      <Link to={`/boards/${board._id}`} state={{game: game}} className="board-link" >
-        <div className="card-2">
+      <Link to={`/boards/${board._id}`} state={{game: game, homeTeam: homeTeam, visitTeam: visitTeam}} className="board-link" >
+        <div className="card">
           <div className="board-teams">
               <h1 className="board-card-text">{visitTeam}</h1>
               <br/>
               <h1 className="board-card-text">{homeTeam}</h1>
                 {game ? 
-              <h3>{game.commence_time}</h3>
+              <p>{game.commence_time}</p>
               :
               null
               }

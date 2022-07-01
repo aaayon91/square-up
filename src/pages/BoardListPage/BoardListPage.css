@@ -8,7 +8,7 @@
     max-width: 1300px;
 }
 
-.card-2 {
+.card {
     flex: 1 0 21%;
     display: flex;
     flex-direction: row;
