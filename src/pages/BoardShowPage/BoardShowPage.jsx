@@ -60,7 +60,9 @@ export default function BoardShowPage({user}) {
                     <h1 className='outline-text'>
                         {board.homeTeam}: <span className="span-outline" >{(board.homeScore || board.homeScore === 0) ? `${board.homeScore}` : null}</span>
                     </h1> */}
+                <div id="table-scroll" className={`${board.size === 25 ? "table-scroll-small" : "table-scroll"}`} >
                     <BoardTable board={board} user={user} handleAddSquare={handleAddSquare} handleDeleteSquare={handleDeleteSquare} winner={winner}/>
+                </div>
                 {/* </div> */}
             </div>
             {

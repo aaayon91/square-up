@@ -38,14 +38,14 @@
     /* align-items: center; */
     justify-content: center;
     height: 65%;
-    width: 66%;
+    width: 65%;
     border-right: 1.5px solid gray;
     text-align: left;
     padding-left: 10%;
 }
 
 .board-price {
-    width: 34%;
+    width: 35%;
 }
 
 .board-card-text{

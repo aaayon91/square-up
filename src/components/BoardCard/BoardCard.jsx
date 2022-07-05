@@ -6,6 +6,8 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
   let homeTeam = board.homeTeam;
   let visitTeam = board.visitTeam;
   const [game, setGame] = useState(null)
+  let gameDate = null
+  let gameTime = null
 
   useEffect(() => {
     async function fetchGame() {
@@ -29,28 +31,38 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
     homeTeam = homeTeam.join(' ')
   } else homeTeam = homeTeam.split(' ').pop();
 
+  if (game) {
+    gameDate = game.commence_time.split(',')[0].split('/')
+    gameTime = game.commence_time.split(',')[1]
+    gameDate.pop()
+    gameDate = gameDate.join('/')
+  }
+
   return (
     <>
       <Link to={`/boards/${board._id}`} state={{game: game, homeTeam: homeTeam, visitTeam: visitTeam}} className="board-link" >
         <div className="card">
           <div className="board-teams">
-              <h1 className="board-card-text">{visitTeam}</h1>
-              <br/>
-              <h1 className="board-card-text">{homeTeam}</h1>
-                {game ? 
-              <p>{game.commence_time}</p>
-              :
-              null
-              }
+            <h1 className="board-card-text">{visitTeam}</h1>
+            <br/>
+            <h1 className="board-card-text">{homeTeam}</h1>
+              {/* {game ? 
+            <p>{gameDate} {gameTime}</p>
+            :
+            null
+            } */}
           </div>
           <div className="board-price">
-            <h1 className="board-card-text-2">${board.entry}</h1>
-            {
+            <h1 className="board-card-text">{gameDate}</h1>
+            <br/>
+            <h1 className="board-card-text">{gameTime}</h1>
+            {/* <h1 className="board-card-text-2">${board.entry}</h1> */}
+            {/* {
               (board.user === user._id && !board.squares.length) ?
               <button className="board-btn" ><Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button>
               :
               <></>
-            }
+            } */}
           </div>
         </div>
       </Link>

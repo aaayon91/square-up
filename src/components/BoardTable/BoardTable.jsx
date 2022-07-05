@@ -4,7 +4,7 @@ export default function BoardTable({board, user, handleAddSquare, handleDeleteSq
     let arr = [...Array(Math.sqrt(board.size)).keys()]
 
     return (
-        <div id="table-scroll" className="table-scroll">
+        // <div id="table-scroll" className="table-scroll">
             <table>
                 <thead>
                     <tr>
@@ -31,6 +31,6 @@ export default function BoardTable({board, user, handleAddSquare, handleDeleteSq
                     ))}
                 </tbody>
             </table>
-        </div>
+        // </div>
     )
 }
