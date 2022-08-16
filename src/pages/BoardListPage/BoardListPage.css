@@ -17,6 +17,7 @@
     background-color: white;
     border: 1.5px solid rgb(128, 128, 128);
     width: 380px;
+    min-width: 320px;
     height: 130px;
     margin: 10px;
 }
