@@ -6,7 +6,6 @@
     overflow: auto;
     overflow-x: auto;
     align-items: center;
-    /* justify-content: center; */
     flex: 1 1 auto;
 }
 
@@ -15,14 +14,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content:flex-end; */
     background-color: white;
     border: 1.5px solid rgb(128, 128, 128);
     width: 380px;
     max-height: 100px;
     margin: 10px;
     margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 .board-card-text .team-score { float:right }
@@ -35,13 +32,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-aside {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    /* overflow: auto; */
-    padding-left: 20px;
 }
 
 table {
@@ -80,11 +70,12 @@ td {
 }
 
 .outline-text-2 {
-    margin-left: 90px;
     color: red;
-    font-family: 'Staatliches', cursive;
-    -webkit-text-stroke: .03px black;
-    font-size: 25px;;
+    margin: 0;
+}
+
+.table-scroll, .table-scroll-small {
+    margin-top: 30px;
 }
 
 @media only screen and (max-width: 450px) {
@@ -95,6 +86,7 @@ td {
         z-index: 1;
         overflow: auto;
         flex: 1 1 auto;
+        margin-top: 30px;
         margin-bottom: 10px;
         max-height: 450px;
     }
@@ -117,13 +109,11 @@ td {
     .table-scroll {
         position:relative;
         display: flex;
-        /* justify-content: center; */
-        /* width: 100vw; */
         width: 100vw;
         z-index: 1;
-        /* margin: auto; */
         overflow: auto;
         flex: 1 1 auto;
+        margin-top: 30px;
         margin-bottom: 10px;
     }
 
@@ -155,6 +145,6 @@ td {
 
     .card-showpage {
         max-width: 92vw;
-        margin: 30px 0 30px 0;
+        margin: 30px 0 10px 0;
     }
 }
