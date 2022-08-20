@@ -53,15 +53,29 @@ export default function BoardShowPage({user}) {
                         <h1 className="board-card-text">{winner}</h1>
                     </div>
                 </div>
-                    {(board.game_started && board.squares.length !== board.size) ?
-                        <h6 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h6>
-                        :
-                        null
-                    }
+                {
+                (board.game_started && board.squares.length !== board.size) ?
+                    <p className='outline-text-2'>***Board not filled before game start. Board not valid***</p>
+                :
+                null
+            }
+                {/* <aside>
+                    <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{(board.visitScore || board.visitScore === 0) ? `${board.visitScore}` : null}</span></h1>
+                </aside>
+                <div className="show-page-div">
+                    <h1 className='outline-text'>
+                        {board.homeTeam}: <span className="span-outline" >{(board.homeScore || board.homeScore === 0) ? `${board.homeScore}` : null}</span>
+                    </h1> */}
                 <div id="table-scroll" className={`${board.size === 25 ? "table-scroll-small" : "table-scroll"}`} >
                     <BoardTable board={board} user={user} handleAddSquare={handleAddSquare} handleDeleteSquare={handleDeleteSquare} winner={winner}/>
                 </div>
             </div>
+            {/* {
+                (board.game_started && board.squares.length !== board.size) ?
+                    <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
+                :
+                null
+            } */}
             </>
         );
     }

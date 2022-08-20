@@ -20,6 +20,7 @@
     max-height: 100px;
     margin: 10px;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .board-card-text .team-score { float:right }
@@ -69,13 +70,18 @@ td {
     -webkit-text-stroke: 1px black;
 }
 
+/* .outline-text-2 {
+    margin-left: 90px;
+    color: red;
+    font-family: 'Staatliches', cursive;
+    -webkit-text-stroke: .03px black;
+    font-size: 25px;;
+} */
+
 .outline-text-2 {
     color: red;
-    margin: 0;
-}
-
-.table-scroll, .table-scroll-small {
-    margin-top: 30px;
+    font-family: 'Staatliches', cursive;
+    font-size: 16px;
 }
 
 @media only screen and (max-width: 450px) {
