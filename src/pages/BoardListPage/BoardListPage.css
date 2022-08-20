@@ -9,6 +9,7 @@
 }
 
 .card {
+    position: relative;
     flex: 1 0 21%;
     display: flex;
     flex-direction: row;
@@ -17,8 +18,16 @@
     background-color: white;
     border: 1.5px solid rgb(128, 128, 128);
     width: 380px;
+    min-width: 300px;
     height: 130px;
     margin: 10px;
+}
+
+.card-price {
+    position: absolute;
+    top: -12px;
+    left: 5px;
+    color: black;
 }
 
 .title {
@@ -55,6 +64,11 @@
     font-weight: 400;
     /* color: rgb(189, 193, 198); */
     color: black;
+}
+
+.board-card-text span {
+    float: right;
+    padding-right: 10px;
 }
 
 .board-card-text-2 {

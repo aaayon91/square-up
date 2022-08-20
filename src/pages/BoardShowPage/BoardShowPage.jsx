@@ -53,6 +53,12 @@ export default function BoardShowPage({user}) {
                         <h1 className="board-card-text">{winner}</h1>
                     </div>
                 </div>
+                {
+                (board.game_started && board.squares.length !== board.size) ?
+                    <p className='outline-text-2'>***Board not filled before game start. Board not valid***</p>
+                :
+                null
+            }
                 {/* <aside>
                     <h1 className='outline-text'>{board.visitTeam}: <span className="span-outline" >{(board.visitScore || board.visitScore === 0) ? `${board.visitScore}` : null}</span></h1>
                 </aside>
@@ -65,12 +71,12 @@ export default function BoardShowPage({user}) {
                 </div>
                 {/* </div> */}
             </div>
-            {
+            {/* {
                 (board.game_started && board.squares.length !== board.size) ?
                     <h3 className='outline-text-2'>***{board.visitTeam} @ {board.homeTeam} has already started. Game no longer valid***</h3>
                 :
                 null
-            }
+            } */}
             </>
         );
     }
