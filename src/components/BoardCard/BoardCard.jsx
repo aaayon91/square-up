@@ -41,30 +41,40 @@ export default function BoardCard({board, user, handleDeleteBoard}) {
   return (
     <>
       <Link to={`/boards/${board._id}`} state={{game: game, homeTeam: homeTeam, visitTeam: visitTeam}} className="board-link" >
-        <div className="card">
-          <div className="board-teams">
-            <h1 className="board-card-text">{visitTeam}</h1>
-            <br/>
-            <h1 className="board-card-text">{homeTeam}</h1>
-              {/* {game ? 
-            <p>{gameDate} {gameTime}</p>
-            :
-            null
-            } */}
-          </div>
-          <div className="board-price">
-            <h1 className="board-card-text">{gameDate}</h1>
-            <br/>
-            <h1 className="board-card-text">{gameTime}</h1>
-            {/* <h1 className="board-card-text-2">${board.entry}</h1> */}
-            {/* {
-              (board.user === user._id && !board.squares.length) ?
-              <button className="board-btn" ><Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button>
+          <div className="card">
+            <p className="card-price">${board.entry}</p>
+            <div className="board-teams">
+            <h1 className="board-card-text">{homeTeam} <span>{board.homeScore}</span></h1>
+              <br/>
+              <h1 className="board-card-text">{visitTeam}  <span>{board.visitScore}</span></h1>
+                {/* {game ? 
+              <p>{gameDate} {gameTime}</p>
               :
-              <></>
-            } */}
+              null
+              } */}
+            </div>
+            <div className="board-price">
+              {board.homeScore ?
+              <h1 className="board-card-text">Final</h1>
+              :
+              <>
+                <h1 className="board-card-text">{gameDate}</h1>
+                <br/>
+                <h1 className="board-card-text">{gameTime}</h1>
+                {/* <h1 className="board-card-text-2">${board.entry}</h1> */}
+                {/* {
+                  (board.user === user._id && !board.squares.length) ?
+                  <button className="board-btn" ><Link className="nav-link" to="/boards" onClick={() => handleDeleteBoard(board._id)} >DELETE</Link></button>
+                  :
+                  <></>
+                } */}
+              </>
+            }
+            </div>
+            {/* <div className="card-price">
+              <p>Hello</p>
+            </div> */}
           </div>
-        </div>
       </Link>
     </>
   );

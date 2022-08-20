@@ -24,9 +24,10 @@ body {
 .form-container {
   height:max-content;
   padding: 3vmin;
-  background-color: #F9F3E6;
-  opacity: 80%;
-  border-radius: 1vmin;
+  background-color: white;
+  /* opacity: 80%; */
+  border: 1.5px solid rgb(128, 128, 128);
+  border-radius: .5vmin;
 }
 
 p.error-message {
@@ -64,14 +65,14 @@ input {
 button, a.button {
   margin: 1vmin;
   padding: 1vmin;
-  color: var(--white);
-  background-color: #FA532E;
+  color: white;
+  background-color: black;
   font-size: 2vmin;
-  font-weight: bold;
-  text-decoration: none;
+  /* font-weight: bold; */
+  /* text-decoration: none; */
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  /* border: .1vmin solid var(--tan-2); */
   border-radius: .5vmin;
-  outline: none;
+  /* outline: none; */
   cursor: pointer;
 }
