@@ -66,9 +66,10 @@
 } */
 
 .squareup {
-  font-size: 95px;
+  font-size: 50px;
   font-family: 'Monoton', cursive;
-  color: #FA532E
+  /* font-family: Roboto, arial, sans-serif; */
+  color: black;
 }
 
 .squareup-2 {
